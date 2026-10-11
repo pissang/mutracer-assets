@@ -1,0 +1,1591 @@
+[
+  {
+    "id": "wooden-chess",
+    "uid": "90151fb0fb294e56b45e52b001a884db",
+    "name": "Wooden Chess Set",
+    "tag": "Wood",
+    "license": "CC-BY 4.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by/4.0/",
+    "credit": "cmzw",
+    "sourceUrl": "https://sketchfab.com/3d-models/wooden-chess-set-90151fb0fb294e56b45e52b001a884db",
+    "sizeMB": 2.53,
+    "bytes": 2529044,
+    "delivery": "github",
+    "sha256": "b2713e1c743a2ef039005f1afd64fa9f96a5d9dc5b4f2c7ed851d7f55ac3c91d",
+    "textureSize": 1024,
+    "compression": {
+      "tool": "gltf-transform",
+      "version": "4.5.1",
+      "inputBytes": 3336560,
+      "outputBytes": 2529044,
+      "compressed": true,
+      "geometry": "Meshopt (16-bit positions, 12-bit normals, 14-bit UVs)",
+      "textures": "lossless WebP for PNG; JPEG unchanged",
+      "images": [
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/jpeg"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/jpeg"
+        }
+      ]
+    },
+    "camera": {
+      "position": [
+        0.4362827570944088,
+        0.4014387941195868,
+        0.3054884753084208
+      ],
+      "target": [
+        0.010344009697356922,
+        0.03734823996380911,
+        0.007242953565403658
+      ],
+      "fov": 35,
+      "space": "grounded"
+    }
+  },
+  {
+    "id": "jaguar-mk2",
+    "uid": "ad0fcdd1fda74f1d97a2b0615e1072ca",
+    "name": "Jaguar MK2 | www.vecarz.com",
+    "tag": "Car / metal",
+    "license": "CC-BY-NC-SA 4.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-nc-sa/4.0/",
+    "credit": "vecarz",
+    "sourceUrl": "https://sketchfab.com/3d-models/jaguar-mk2-wwwvecarzcom-ad0fcdd1fda74f1d97a2b0615e1072ca",
+    "sizeMB": 7.12,
+    "bytes": 7117952,
+    "delivery": "local",
+    "sha256": "1732b8d7c5467c9ecabc66131c27d7fb04ccc6c9e93fd27c0a959f632382bdbb",
+    "textureSize": 1024,
+    "compression": {
+      "tool": "gltf-transform",
+      "version": "4.5.1",
+      "inputBytes": 15538312,
+      "outputBytes": 7117952,
+      "compressed": true,
+      "geometry": "Meshopt (16-bit positions, 12-bit normals, 14-bit UVs)",
+      "textures": "lossless WebP for PNG; JPEG unchanged",
+      "images": [
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/jpeg"
+        },
+        {
+          "width": 32,
+          "height": 32,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 256,
+          "height": 256,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 128,
+          "height": 128,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 64,
+          "height": 64,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 256,
+          "height": 256,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 512,
+          "height": 256,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 256,
+          "height": 256,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 128,
+          "height": 128,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 128,
+          "height": 128,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 32,
+          "height": 32,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 256,
+          "height": 256,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 256,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 256,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 256,
+          "height": 256,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 256,
+          "height": 256,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 256,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 128,
+          "height": 128,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 32,
+          "height": 32,
+          "mimeType": "image/webp"
+        }
+      ]
+    },
+    "reviewOnly": true,
+    "camera": {
+      "position": [
+        2.1682705857780955,
+        1.6666166801459947,
+        3.9967016581594472
+      ],
+      "target": [
+        -0.3946966363127959,
+        0.5525201825601743,
+        0.336405128584966
+      ],
+      "fov": 35,
+      "space": "grounded"
+    }
+  },
+  {
+    "id": "yamaha-mt-09",
+    "uid": "cb5878baf5974167806eb8524d57f0b0",
+    "name": "2025 Yamaha MT-09 SP V4",
+    "tag": "Motorcycle / metal",
+    "license": "CC-BY-NC-SA 4.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-nc-sa/4.0/",
+    "credit": "VTX",
+    "sourceUrl": "https://sketchfab.com/3d-models/2025-yamaha-mt-09-sp-v4-cb5878baf5974167806eb8524d57f0b0",
+    "sizeMB": 11.47,
+    "bytes": 11470760,
+    "delivery": "github",
+    "sha256": "efcaba1d9d194db7ad9e6e0878c773cf1558c256c4d46efe40b066fc2428892c",
+    "textureSize": 1024,
+    "compression": {
+      "tool": "gltf-transform",
+      "version": "4.5.1",
+      "inputBytes": 38501184,
+      "outputBytes": 11470760,
+      "compressed": true,
+      "geometry": "Meshopt (16-bit positions, 12-bit normals, 14-bit UVs)",
+      "textures": "lossless WebP for PNG; JPEG unchanged",
+      "images": [
+        {
+          "width": 1024,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 16,
+          "height": 16,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1,
+          "height": 1,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 256,
+          "height": 256,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 4,
+          "height": 4,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 32,
+          "height": 32,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 4,
+          "height": 4,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 16,
+          "height": 16,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 4,
+          "height": 4,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 4,
+          "height": 4,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 32,
+          "height": 32,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 512,
+          "height": 256,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 512,
+          "height": 256,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 64,
+          "height": 64,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 4,
+          "height": 4,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 256,
+          "height": 256,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 256,
+          "height": 256,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        }
+      ]
+    },
+    "nonCommercial": true,
+    "camera": {
+      "position": [
+        1.6960501485157866,
+        1.0406658365292198,
+        -0.7908811728678338
+      ],
+      "target": [
+        0,
+        0.7106902961051821,
+        0
+      ],
+      "fov": 35,
+      "space": "grounded"
+    }
+  },
+  {
+    "id": "super-human",
+    "uid": "7aa58e978b9f4357b8e73d8e0440c896",
+    "name": "Super Human",
+    "tag": "Character / skin",
+    "license": "CC-BY 4.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by/4.0/",
+    "credit": "Davyd Vidiger",
+    "sourceUrl": "https://sketchfab.com/3d-models/super-human-7aa58e978b9f4357b8e73d8e0440c896",
+    "sizeMB": 3.85,
+    "bytes": 3848000,
+    "delivery": "github",
+    "sha256": "a8d5bdf3d06014eccdff2364aecaa3f5c4ffe0c235f214f5951db1348b21b495",
+    "textureSize": 1024,
+    "compression": {
+      "tool": "gltf-transform",
+      "version": "4.5.1",
+      "inputBytes": 10073148,
+      "outputBytes": 3848000,
+      "compressed": true,
+      "geometry": "Meshopt (16-bit positions, 12-bit normals, 14-bit UVs)",
+      "textures": "lossless WebP for PNG; JPEG unchanged",
+      "images": [
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        }
+      ]
+    },
+    "camera": {
+      "position": [
+        -105.87534825725147,
+        166.70388650621666,
+        227.0504170490354
+      ],
+      "target": [
+        0,
+        153.57456298828126,
+        0
+      ],
+      "fov": 35,
+      "space": "grounded"
+    }
+  },
+  {
+    "id": "sci-fi-box",
+    "uid": "c42695379c814cbcb0469c41b14f0259",
+    "name": "Sci-fi Box",
+    "tag": "Sci-fi / metal",
+    "license": "CC-BY 4.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by/4.0/",
+    "credit": "Martin Trafas",
+    "sourceUrl": "https://sketchfab.com/3d-models/sci-fi-box-c42695379c814cbcb0469c41b14f0259",
+    "sizeMB": 5.9,
+    "bytes": 5899336,
+    "delivery": "github",
+    "sha256": "e45423ef4a887ec4d73ef9561174978f0d54019e0c8f8fd9a734b58dadbd17fc",
+    "textureSize": 1024,
+    "compression": {
+      "tool": "gltf-transform",
+      "version": "4.5.1",
+      "inputBytes": 8058396,
+      "outputBytes": 5899336,
+      "compressed": true,
+      "geometry": "Meshopt (16-bit positions, 12-bit normals, 14-bit UVs)",
+      "textures": "lossless WebP for PNG; JPEG unchanged",
+      "images": [
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        }
+      ]
+    },
+    "materialNotes": "箱体表面有细节和局部明暗贴图；可查看金属反射，需对照筛选。",
+    "camera": {
+      "position": [
+        -3.156733574317115,
+        2.2358894476563917,
+        4.508282761976899
+      ],
+      "target": [
+        0,
+        0.8636885905228607,
+        0
+      ],
+      "fov": 35,
+      "space": "grounded"
+    }
+  },
+  {
+    "id": "octopus-tea-bath",
+    "uid": "107260cf0fd24202a67eb037a6c760a5",
+    "name": "Cartoon octopus takes a tea bath",
+    "tag": "Cartoon / ceramic",
+    "license": "Sketchfab Free Standard",
+    "licenseUrl": "https://sketchfab.com/licenses",
+    "credit": "AzTiZ",
+    "sourceUrl": "https://sketchfab.com/3d-models/cartoon-octopus-takes-a-tea-bath-107260cf0fd24202a67eb037a6c760a5",
+    "sizeMB": 5.72,
+    "bytes": 5724200,
+    "delivery": "local",
+    "sha256": "5ec687a3e785b0a84f6ccb57e17b665596004701799facb7bd0c4794edf93029",
+    "textureSize": 1024,
+    "compression": {
+      "tool": "gltf-transform",
+      "version": "4.5.1",
+      "inputBytes": 11991408,
+      "outputBytes": 5724200,
+      "compressed": true,
+      "geometry": "Meshopt (16-bit positions, 12-bit normals, 14-bit UVs)",
+      "textures": "lossless WebP for PNG; JPEG unchanged",
+      "images": [
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        }
+      ]
+    },
+    "materialNotes": "主要部位使用纯色材质，可展示反射和透射；Free Standard，仅本地预览。",
+    "reviewOnly": true,
+    "camera": {
+      "position": [
+        -4.370419707833912,
+        4.22940222613811,
+        6.241606194369462
+      ],
+      "target": [
+        -1.7763568394002505e-15,
+        2.3296240130146613,
+        7.105427357601002e-15
+      ],
+      "fov": 35,
+      "space": "grounded"
+    }
+  },
+  {
+    "id": "gelatinous-cube",
+    "uid": "e08385238f4d4b59b012233a9fbdca21",
+    "name": "Gelatinous Cube",
+    "tag": "Glass / transmission",
+    "license": "CC-BY-NC 4.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-nc/4.0/",
+    "credit": "glenatron",
+    "sourceUrl": "https://sketchfab.com/3d-models/gelatinous-cube-e08385238f4d4b59b012233a9fbdca21",
+    "sizeMB": 20.13,
+    "bytes": 20132044,
+    "delivery": "r2",
+    "sha256": "66cf10385995c18900cb90723c19e178cfab12de165a928459f996af6eff5c1a",
+    "textureSize": 1024,
+    "compression": {
+      "tool": "gltf-transform",
+      "version": "4.5.1",
+      "inputBytes": 29825156,
+      "outputBytes": 20132044,
+      "compressed": true,
+      "geometry": "Meshopt (16-bit positions, 12-bit normals, 14-bit UVs)",
+      "textures": "lossless WebP for PNG; JPEG unchanged",
+      "images": [
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 256,
+          "height": 256,
+          "mimeType": "image/webp"
+        }
+      ]
+    },
+    "materialNotes": "石墙和杂物依赖较多细节贴图；绿色方块具有真实透射，可重点查看。",
+    "nonCommercial": true,
+    "camera": {
+      "position": [
+        -9.46307275803329,
+        8.475911174419261,
+        14.914383127377091
+      ],
+      "target": [
+        0.5009901433206276,
+        4.1446315995416025,
+        0.6842265557554421
+      ],
+      "fov": 35,
+      "space": "grounded"
+    },
+    "r2Bucket": "mutracer-assets",
+    "r2Key": "models/gelatinous-cube/66cf10385995c18900cb9072/model.glb",
+    "r2Url": "https://mutracer-assets.meimu-studio.com/models/gelatinous-cube/66cf10385995c18900cb9072/model.glb"
+  },
+  {
+    "id": "blender-cover-remix",
+    "uid": "a38f11890ff141c88fcdac6b637fdaf8",
+    "name": "Blender Cover Remix",
+    "tag": "Characters / scene",
+    "license": "CC-BY 4.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by/4.0/",
+    "credit": "bandinopla",
+    "sourceUrl": "https://sketchfab.com/3d-models/blender-cover-remix-a38f11890ff141c88fcdac6b637fdaf8",
+    "sizeMB": 28.07,
+    "bytes": 28069680,
+    "delivery": "r2",
+    "sha256": "4c918299ecc8ef28fee4e5ac46d6c64f836bd59fba725102862866a301a10597",
+    "textureSize": 1024,
+    "compression": {
+      "tool": "gltf-transform",
+      "version": "4.5.1",
+      "inputBytes": 37558928,
+      "outputBytes": 28069680,
+      "compressed": true,
+      "geometry": "Meshopt (16-bit positions, 12-bit normals, 14-bit UVs)",
+      "textures": "lossless WebP for PNG; JPEG unchanged",
+      "images": [
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 128,
+          "height": 128,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 128,
+          "height": 128,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/jpeg"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/jpeg"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 128,
+          "height": 128,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 128,
+          "height": 128,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 128,
+          "height": 128,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 128,
+          "height": 128,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 128,
+          "height": 128,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 128,
+          "height": 128,
+          "mimeType": "image/jpeg"
+        },
+        {
+          "width": 128,
+          "height": 128,
+          "mimeType": "image/jpeg"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 128,
+          "height": 128,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/jpeg"
+        },
+        {
+          "width": 64,
+          "height": 128,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 64,
+          "height": 128,
+          "mimeType": "image/jpeg"
+        }
+      ]
+    },
+    "materialNotes": "贴图密集，部分颜色贴图含明暗；不优先作为光追对比示例，按指定保留供筛选。",
+    "camera": {
+      "position": [
+        -7.966102731369936,
+        6.955486121047712,
+        11.376773737308895
+      ],
+      "target": [
+        -4.440892098500626e-16,
+        3.492700067471975,
+        0
+      ],
+      "fov": 35,
+      "space": "grounded"
+    },
+    "r2Bucket": "mutracer-assets",
+    "r2Key": "models/blender-cover-remix/4c918299ecc8ef28fee4e5ac/model.glb",
+    "r2Url": "https://mutracer-assets.meimu-studio.com/models/blender-cover-remix/4c918299ecc8ef28fee4e5ac/model.glb"
+  }
+]

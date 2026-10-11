@@ -1,0 +1,189 @@
+[
+  {
+    "id": "wooden-chess",
+    "uid": "90151fb0fb294e56b45e52b001a884db",
+    "tag": "Wood",
+    "camera": {
+      "position": [
+        0.4362827570944088,
+        0.4014387941195868,
+        0.3054884753084208
+      ],
+      "target": [
+        0.010344009697356922,
+        0.03734823996380911,
+        0.007242953565403658
+      ],
+      "fov": 35,
+      "space": "grounded"
+    },
+    "cameraReason": "提高俯视角，看清棋盘与棋子，前沿允许裁切；平移取景使主要细节的画面重心居中",
+    "compositionAdjusted": true
+  },
+  {
+    "id": "jaguar-mk2",
+    "uid": "ad0fcdd1fda74f1d97a2b0615e1072ca",
+    "tag": "Car / metal",
+    "reviewOnly": true,
+    "camera": {
+      "position": [
+        2.1682705857780955,
+        1.6666166801459947,
+        3.9967016581594472
+      ],
+      "target": [
+        -0.3946966363127959,
+        0.5525201825601743,
+        0.336405128584966
+      ],
+      "fov": 35,
+      "space": "grounded"
+    },
+    "cameraReason": "低位正面三分之四，突出镀铬前脸与车身曲面；平移取景使主要细节的画面重心居中",
+    "compositionAdjusted": true
+  },
+  {
+    "id": "yamaha-mt-09",
+    "uid": "cb5878baf5974167806eb8524d57f0b0",
+    "tag": "Motorcycle / metal",
+    "camera": {
+      "position": [
+        1.6960501485157866,
+        1.0406658365292198,
+        -0.7908811728678338
+      ],
+      "target": [
+        0,
+        0.7106902961051821,
+        0
+      ],
+      "fov": 35,
+      "space": "grounded"
+    },
+    "cameraReason": "近距离展示油箱、发动机和前轮，允许车尾和轮胎出画",
+    "nonCommercial": true
+  },
+  {
+    "id": "super-human",
+    "uid": "7aa58e978b9f4357b8e73d8e0440c896",
+    "tag": "Character / skin",
+    "camera": {
+      "position": [
+        -105.87534825725147,
+        166.70388650621666,
+        227.0504170490354
+      ],
+      "target": [
+        0,
+        153.57456298828126,
+        0
+      ],
+      "fov": 35,
+      "space": "grounded"
+    },
+    "cameraReason": "低位靠近面部与胸部，腿部裁切以强调体量"
+  },
+  {
+    "id": "sci-fi-box",
+    "uid": "c42695379c814cbcb0469c41b14f0259",
+    "tag": "Sci-fi / metal",
+    "camera": {
+      "position": [
+        -3.156733574317115,
+        2.2358894476563917,
+        4.508282761976899
+      ],
+      "target": [
+        0,
+        0.8636885905228607,
+        0
+      ],
+      "fov": 35,
+      "space": "grounded"
+    },
+    "cameraReason": "低位三分之四角度突出浅色箱体与金属槽，箱体边缘允许裁切",
+    "materialNotes": "箱体表面有细节和局部明暗贴图；可查看金属反射，需对照筛选。"
+  },
+  {
+    "id": "octopus-tea-bath",
+    "uid": "107260cf0fd24202a67eb037a6c760a5",
+    "tag": "Cartoon / ceramic",
+    "reviewOnly": true,
+    "camera": {
+      "position": [
+        -4.370419707833912,
+        4.22940222613811,
+        6.241606194369462
+      ],
+      "target": [
+        -1.7763568394002505e-15,
+        2.3296240130146613,
+        7.105427357601002e-15
+      ],
+      "fov": 35,
+      "space": "grounded"
+    },
+    "cameraReason": "靠近章鱼面部、触手与茶壶，忽略外围蒸汽以突出主体",
+    "materialNotes": "主要部位使用纯色材质，可展示反射和透射；Free Standard，仅本地预览。"
+  },
+  {
+    "id": "gelatinous-cube",
+    "uid": "e08385238f4d4b59b012233a9fbdca21",
+    "tag": "Glass / transmission",
+    "nonCommercial": true,
+    "camera": {
+      "position": [
+        -9.46307275803329,
+        8.475911174419261,
+        14.914383127377091
+      ],
+      "target": [
+        0.5009901433206276,
+        4.1446315995416025,
+        0.6842265557554421
+      ],
+      "fov": 35,
+      "space": "grounded"
+    },
+    "cameraReason": "正面三分之四对准透明方块，允许外围石墙裁切；平移取景让方块的视觉重心靠近画面中心",
+    "materialNotes": "石墙和杂物依赖较多细节贴图；绿色方块具有真实透射，可重点查看。"
+  },
+  {
+    "id": "blender-cover-remix",
+    "uid": "a38f11890ff141c88fcdac6b637fdaf8",
+    "tag": "Characters / scene",
+    "camera": {
+      "position": [
+        -7.966102731369936,
+        6.955486121047712,
+        11.376773737308895
+      ],
+      "target": [
+        -4.440892098500626e-16,
+        3.492700067471975,
+        0
+      ],
+      "fov": 35,
+      "space": "grounded"
+    },
+    "cameraReason": "靠近机器人和店铺正面，让角色与金属零件成为画面重点",
+    "materialNotes": "贴图密集，部分颜色贴图含明暗；不优先作为光追对比示例，按指定保留供筛选。",
+    "additionalCredits": [
+      {
+        "name": "Juri Unt",
+        "contribution": "Blender Man",
+        "source": "Credits texture embedded in the downloaded model"
+      },
+      {
+        "name": "Alex Treviño",
+        "contribution": "The JunkShop — 3D",
+        "source": "Credits texture embedded in the downloaded model"
+      },
+      {
+        "name": "Anais Maamar",
+        "contribution": "The JunkShop — concept",
+        "source": "Credits texture embedded in the downloaded model"
+      }
+    ]
+  }
+]

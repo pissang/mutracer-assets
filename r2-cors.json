@@ -1,0 +1,15 @@
+{
+  "rules": [
+    {
+      "allowed": {
+        "origins": [
+          "https://mutracer.meimu-studio.com"
+        ],
+        "methods": ["GET", "HEAD"],
+        "headers": ["Range"]
+      },
+      "exposeHeaders": ["ETag", "Content-Length", "Content-Range", "CF-Cache-Status"],
+      "maxAgeSeconds": 86400
+    }
+  ]
+}
