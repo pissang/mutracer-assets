@@ -1,0 +1,10 @@
+{
+  "title": "2025 Yamaha MT-09 SP V4",
+  "author": "VTX",
+  "authorUrl": "https://sketchfab.com/VTX_car",
+  "sourceUrl": "https://sketchfab.com/3d-models/2025-yamaha-mt-09-sp-v4-cb5878baf5974167806eb8524d57f0b0",
+  "license": "CC-BY-NC-SA 4.0",
+  "licenseUrl": "http://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "description": "2025 Yamaha MT-09 SP V4 | Ultra Detailed Model",
+  "changes": "Repacked as a single GLB; textures limited to 1024px; geometry compressed/quantized with gltf-transform Meshopt without simplification; PNG textures compressed with lossless WebP; default camera embedded; preview rendered with MuTracer and denoised with OIDN standard."
+}

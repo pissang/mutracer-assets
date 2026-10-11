@@ -50,6 +50,7 @@ const server = http.createServer(async (req, res) => {
           await save(catalogFile, catalog.filter((item) => item.id !== id));
         } else {
           if (!entry) throw new Error('Model must be imported before changing delivery');
+          if (entry.delivery === 'external') throw new Error('External/procedural models only host previews here');
           if (entry.reviewOnly) throw new Error('Review-only models cannot be published');
           if (action === 'github' && entry.bytes > MAX_FILE) throw new Error('GLB exceeds jsDelivr 20 MB limit');
           if (action !== entry.delivery) {

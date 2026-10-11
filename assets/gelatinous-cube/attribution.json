@@ -1,0 +1,10 @@
+{
+  "title": "Gelatinous Cube",
+  "author": "glenatron",
+  "authorUrl": "https://sketchfab.com/glenatron",
+  "sourceUrl": "https://sketchfab.com/3d-models/gelatinous-cube-e08385238f4d4b59b012233a9fbdca21",
+  "license": "CC-BY-NC 4.0",
+  "licenseUrl": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "description": "Small D&D fanart diorama.<br>Long live the Betrayed!",
+  "changes": "Repacked as a single GLB; textures limited to 1024px; geometry compressed/quantized with gltf-transform Meshopt without simplification; PNG textures compressed with lossless WebP; default camera embedded; preview rendered with MuTracer and denoised with OIDN standard."
+}

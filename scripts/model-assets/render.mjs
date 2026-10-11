@@ -68,10 +68,19 @@ export async function createAssetRenderer(options) {
     return {
       async render(file, output, camera) {
         return withTimeout(async () => {
-          modelFile = file;
-          const cameraResult = await page.evaluate(async ({ width, height, camera, reload }) => {
+          const external = typeof file === 'object' ? file : null;
+          const key = external ? JSON.stringify(external) : file;
+          modelFile = external ? null : file;
+          const cameraResult = await page.evaluate(async ({ width, height, camera, reload, external }) => {
+            window.assetStore.setState(s => ({settings: {...s.settings, background: external?.background || 'color'}}));
             if (reload) {
-              const loaded = await window.assetEngine.loadUrl(`/__asset-model.glb?t=${Date.now()}`);
+              let loaded;
+              if (external?.url === null) {
+                const {createMaterialSpheres} = await import('/src/engine/loadModel.ts');
+                loaded = await window.assetEngine.loadModel(createMaterialSpheres());
+              } else {
+                loaded = await window.assetEngine.loadUrl(external?.url || `/__asset-model.glb?t=${Date.now()}`);
+              }
               if (loaded === false) throw new Error('GLB loading failed; check required glTF extensions and textures');
             }
             const loadedCamera=reload?{position:window.assetEngine.camera.position.toArray(),target:window.assetEngine.controls.target.toArray(),fov:window.assetEngine.perspectiveCamera.fov,space:'grounded'}:null;
@@ -101,14 +110,14 @@ export async function createAssetRenderer(options) {
               window.assetEngine.lookAt(new window.assetVector3(...camera.position), new window.assetVector3(...camera.target));
             }
             return {camera:{position:window.assetEngine.camera.position.toArray(),target:window.assetEngine.controls.target.toArray(),fov:window.assetEngine.perspectiveCamera.fov,space:'grounded'},loadedCamera};
-          }, { width: options.width, height: options.height, camera, reload:loadedFile !== file });
-          loadedFile=file;
+          }, { width: options.width, height: options.height, camera, external, reload:loadedFile !== key });
+          loadedFile=key;
           await page.waitForFunction(() => {
             const state = window.assetStore.getState();
             if (state.stats.phase === 'error') throw new Error('MuTracer GPU preparation failed');
             return !state.loading && state.stats.samples > 0;
           }, null, { timeout: options.timeout });
-          const rendered = await page.evaluate(async ({ width, height, samples }) => {
+          const rendered = await page.evaluate(async ({ width, height, samples, previewQuality = 0.8 }) => {
             const renderer = window.assetEngine.renderer;
             if (!renderer.isUsingWebGPU()) throw new Error('Asset previews require WebGPU for OIDN denoising');
             await renderer.setDenoiser({ type: 'oidn', model: 'standard', whileConverging: false, weightsBaseUrl: new URL('/oidn/weights/',location.href).href });
@@ -117,7 +126,7 @@ export async function createAssetRenderer(options) {
             const unsubscribe=window.assetStore.subscribe(state=>{if(state.export?.stage==='denoising') denoised=true;});
             let blob;
             try {
-              blob = await window.assetEngine.renderImage({ width, height, samples, transparent: false }, 'image/webp', 0.9);
+              blob = await window.assetEngine.renderImage({ width, height, samples, transparent: false }, 'image/webp', previewQuality);
             } finally {unsubscribe();}
             if (!denoised) throw new Error('Offline preview did not run the denoising pass');
             if (!renderer.oidn) throw new Error('OIDN was detached during the offline render');

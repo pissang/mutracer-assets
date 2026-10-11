@@ -1,0 +1,10 @@
+{
+  "title": "Wooden Chess Set",
+  "author": "cmzw",
+  "authorUrl": "https://sketchfab.com/cmzw",
+  "sourceUrl": "https://sketchfab.com/3d-models/wooden-chess-set-90151fb0fb294e56b45e52b001a884db",
+  "license": "CC-BY 4.0",
+  "licenseUrl": "http://creativecommons.org/licenses/by/4.0/",
+  "description": "Low poly, complete wooden chess set.",
+  "changes": "Repacked as a single GLB; textures limited to 1024px; geometry compressed/quantized with gltf-transform Meshopt without simplification; PNG textures compressed with lossless WebP; default camera embedded; preview rendered with MuTracer and denoised with OIDN standard."
+}

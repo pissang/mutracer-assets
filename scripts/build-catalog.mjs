@@ -14,10 +14,12 @@ export function buildCatalog(entries, version, repository = 'pissang/mutracer-as
     if (!/^[a-z0-9-]+$/.test(entry.id)) throw new Error('Invalid model ID');
     if (entry.license && !canPublish(entry)) throw new Error(`Not eligible for public presets: ${entry.id}`);
     if (entry.delivery === 'r2' && !entry.r2Url) throw new Error(`${entry.id}: upload its GLB and set the R2 public URL before generating the catalog`);
-    return { id: entry.id, name: entry.name, tag: entry.tag, url: entry.delivery === 'r2' ? entry.r2Url : `${base}/assets/${entry.id}/model.glb`,
+    if (entry.delivery === 'external' && entry.url !== null &&
+      (typeof entry.url !== 'string' || !entry.url.startsWith('https://'))) throw new Error(`${entry.id}: invalid external model URL`);
+    return { id: entry.id, name: entry.name, tag: entry.tag, url: entry.delivery === 'external' ? entry.url : entry.delivery === 'r2' ? entry.r2Url : `${base}/assets/${entry.id}/model.glb`,
       thumbnail: `${base}/assets/${entry.id}/thumbnail.webp`, license: entry.license, credit: entry.credit,
       sourceUrl: entry.sourceUrl, licenseUrl: entry.licenseUrl, attributionUrl: `${base}/assets/${entry.id}/attribution.json`,
-      sizeMB: Number((entry.bytes / 1024 ** 2).toFixed(2)), ...(entry.nonCommercial===true ? {nonCommercial:true} : {}), ...(entry.camera ? {camera:entry.camera} : {}) };
+      ...(entry.bytes ? {sizeMB: Number((entry.bytes / 1024 ** 2).toFixed(2))} : {}), ...(entry.nonCommercial===true ? {nonCommercial:true} : {}), ...(entry.camera ? {camera:entry.camera} : {}) };
   });
 }
 

@@ -9,23 +9,24 @@ import { createAssetRenderer } from './model-assets/render.mjs';
 import { root, MAX_FILE, checkRepository } from './check-assets.mjs';
 import { limitTextures } from './model-assets/textures.mjs';
 import { compressGLB } from './model-assets/compress.mjs';
+import { prepareViewerModel } from './model-assets/viewer-models.mjs';
 import { withCatalogLock, saveJSON } from './model-assets/catalog-lock.mjs';
 
 const { values } = parseArgs({ options: {
   help: { type: 'boolean' }, model: { type: 'string', multiple: true },
   'token-stdin': { type: 'boolean' }, 'refresh': { type: 'boolean' },
   'mutracer-dir': { type: 'string' }, headless: { type: 'boolean' }, webgl: { type: 'boolean' },
-  width: { type: 'string', default: '960' }, height: { type: 'string', default: '540' },
+  width: { type: 'string', default: '720' }, height: { type: 'string', default: '405' },
   samples: { type: 'string', default: '256' }, timeout: { type: 'string', default: '300000' },
   local: { type: 'string' }, 'browser-path': { type: 'string' },
   'texture-size': { type: 'string', default: '1024' }
 } });
 if (values.help) {
-  console.log(`Usage: npm run import -- [--model UID_OR_URL] [--headless] [--refresh]
+  console.log(`Usage: npm run import -- [--model ID_OR_UID_OR_URL] [--headless] [--refresh]
 Downloads + GLB + MuTracer previews. No GitHub or R2 uploads.
 Default selection: models.json. Uses cached GLBs/previews unless --refresh.
 --mutracer-dir DIR   MuTracer checkout with npm install (default ../mutracer)
---width/--height     Preview dimensions (default 960 × 540)
+--width/--height     Preview dimensions (default 720 × 405)
 --samples           Offline samples (default 256, OIDN standard on WebGPU)
 --texture-size      Maximum texture dimension (default 1024)
 --timeout           GPU timeout in ms (default 300000)
@@ -46,16 +47,18 @@ GLBs larger than 20 MB are staged in ignored work/r2; previews always go to asse
       process.stdin.pause();
     }
     const options = { width: Number(values.width), height: Number(values.height), samples: Number(values.samples), timeout: Number(values.timeout),
-      headless: !!values.headless, webgl: !!values.webgl, mutracerDir: values['mutracer-dir'], browserPath: values['browser-path'], textureSize: Number(values['texture-size']),denoise:true,denoiser:{type:'oidn',model:'standard'} };
+      headless: !!values.headless, webgl: !!values.webgl, mutracerDir: values['mutracer-dir'], browserPath: values['browser-path'], previewQuality: 0.8, textureSize: Number(values['texture-size']),denoise:true,denoiser:{type:'oidn',model:'standard'} };
     for (const key of ['width', 'height', 'samples', 'timeout']) if (!Number.isSafeInteger(options[key]) || options[key] <= 0) throw new Error(`${key} must be a positive integer`);
     if (options.width > 8192 || options.height > 8192) throw new Error('Preview dimensions must not exceed 8192');
     const configured = JSON.parse(await readFile(path.join(root, 'models.json'), 'utf8'));
     const selected = values.model ? values.model.map((input) => {
+      const existing = configured.find(entry => entry.id === input || (entry.source === 'viewer' && entry.url === input));
+      if (existing) return existing;
       const uid = modelUid(input);
       return configured.find((entry) => entry.uid === uid) || { uid, id: uid };
     }) : configured;
     for (const entry of selected) {
-      entry.uid = modelUid(entry.uid);
+      if (entry.source !== 'viewer') entry.uid = modelUid(entry.uid);
       if (!/^[a-z0-9-]+$/.test(entry.id)) throw new Error('Invalid model ID');
     }
     renderer = await createAssetRenderer(options);
@@ -66,6 +69,10 @@ GLBs larger than 20 MB are staged in ignored work/r2; previews always go to asse
       console.log(`Preview: ${output}`);
     } else {
       for (const entry of selected) {
+        if (entry.source === 'viewer') {
+          await prepareViewerModel(root, entry, options, renderer);
+          continue;
+        }
         const dir = path.join(root, 'work/import', entry.id);
         await mkdir(dir, { recursive: true });
         const glbFile = path.join(dir, 'model.glb');

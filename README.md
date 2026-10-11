@@ -30,9 +30,21 @@ Prefer modeled detail and simple material colors. Dense detail textures or baked
 shadows/highlights/reflections can obscure the benefit of path tracing; texture
 count alone does not identify baked lighting.
 
-Import one model with `--model URL_OR_UID`. Downloads and rendering are serial.
+Material spheres, Toy Car and Sheen Chair share this same `models.json` selection,
+review list and published `presets.json`. Their entries have `source: "viewer"`:
+Material spheres are procedural and the two Khronos GLBs remain at their original
+URLs. Only previews and attribution files are stored here (`delivery: "external"`);
+the review UI permits removal but does not move these model sources to R2/GitHub.
+Default cameras and the studio background are stored alongside the model metadata.
+Regenerate them with the same importer, without Sketchfab credentials:
+
+```bash
+npm run import -- --headless --model spheres --model toycar --model sheenchair
+```
+
+Import one model with `--model ID_OR_URL_OR_UID`. Downloads and rendering are serial.
 Completed models are checkpointed; re-running reuses cached GLBs and matching
-previews. `--refresh` downloads and renders again. Defaults are 960 × 540,
+previews. `--refresh` downloads and renders again. Defaults are 720 × 405 with WebP quality 80%,
 256 offline samples, procedural studio lights and OIDN standard denoising on
 WebGPU. Preview generation fails if WebGPU or OIDN is unavailable. Downloads prefer Sketchfab's optimized GLB; all textures are
 checked and capped at 1024 pixels on their longest edge without upscaling.
@@ -141,20 +153,20 @@ Use a new immutable tag for every published version; do not move old tags.
 The generated URLs look like:
 
 ```text
-https://cdn.jsdelivr.net/gh/pissang/mutracer-assets@v0.1.0/assets/coffee-maker/model.glb
-https://cdn.jsdelivr.net/gh/pissang/mutracer-assets@v0.1.0/assets/coffee-maker/thumbnail.webp
+https://cdn.jsdelivr.net/gh/pissang/mutracer-assets@v0.1.0/assets/wooden-chess/model.glb
+https://cdn.jsdelivr.net/gh/pissang/mutracer-assets@v0.1.0/assets/wooden-chess/thumbnail.webp
 ```
 
 `presets.json` is a viewer-compatible model list. R2 models have an R2 `url`
 and a jsDelivr `thumbnail`. Add reviewed entries to the MuTracer viewer while
-keeping author/source attribution and a visible CC license link. The `attributionUrl`
+keeping the same IDs/order/cameras, author/source attribution and a visible CC license link. The `attributionUrl`
 contains original descriptions and additional creator credits. Editing selection
 or delivery in the review UI invalidates `presets.json`, so regenerate it before
 your next commit.
 
 ## Licenses
 
-Every download checks Sketchfab's current license and download availability.
+Every Sketchfab download checks Sketchfab's current license and download availability.
 Public NC assets require an explicit `nonCommercial: true` decision. Free
 Standard permits local previews but not standalone GLB redistribution.
 `assets/<id>/attribution.json` retains the original author,

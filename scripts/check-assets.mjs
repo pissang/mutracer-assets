@@ -37,6 +37,8 @@ export async function checkRepository() {
     if (entry.delivery === 'github' || entry.delivery === 'local') {
       const glb = await readFile(path.join(folder, 'model.glb'));
       if (glb.readUInt32LE(0) !== 0x46546c67 || glb.readUInt32LE(8) !== glb.length) throw new Error(`Invalid GLB: ${entry.id} (Git LFS is unsupported)`);
+    } else if (entry.delivery === 'external') {
+      if (entry.url !== null && (typeof entry.url !== 'string' || !entry.url.startsWith('https://'))) throw new Error(`Invalid external model URL: ${entry.id}`);
     } else if (entry.delivery !== 'r2') throw new Error(`Invalid delivery: ${entry.id}`);
     const webp = await readFile(path.join(folder, 'thumbnail.webp'));
     if (webp.toString('ascii', 0, 4) !== 'RIFF' || webp.toString('ascii', 8, 12) !== 'WEBP') throw new Error(`Invalid WebP: ${entry.id}`);

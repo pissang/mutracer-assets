@@ -1,5 +1,95 @@
 [
   {
+    "id": "spheres",
+    "source": "viewer",
+    "name": "Material spheres",
+    "tag": "OpenPBR layers",
+    "url": null,
+    "license": "CC0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "credit": "Procedural scene by Yi Shen",
+    "sourceUrl": "https://github.com/pissang/mutracer",
+    "bytes": 0,
+    "camera": {
+      "position": [
+        2.3694893932125187,
+        1.9787714684587185,
+        3.986024380121064
+      ],
+      "target": [
+        0.16,
+        0.31999998688697817,
+        0
+      ],
+      "fov": 35,
+      "space": "grounded"
+    },
+    "background": "environment",
+    "delivery": "external",
+    "sizeMB": 0,
+    "previewSha256": "62f865ad44bd89b47ad14b399fb3421199058f948ef5651d472b23658f16ca72"
+  },
+  {
+    "id": "toycar",
+    "source": "viewer",
+    "name": "Toy Car",
+    "tag": "Coat · transmission",
+    "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/main/Models/ToyCar/glTF-Binary/ToyCar.glb",
+    "license": "CC0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "credit": "Khronos glTF Sample Assets",
+    "sourceUrl": "https://github.com/KhronosGroup/glTF-Sample-Assets/tree/main/Models/ToyCar",
+    "bytes": 5422412,
+    "camera": {
+      "position": [
+        0.025324038537407917,
+        0.033701709525349795,
+        0.050293870388360626
+      ],
+      "target": [
+        -0.002,
+        0.0186,
+        0.001
+      ],
+      "fov": 35,
+      "space": "grounded"
+    },
+    "background": "environment",
+    "delivery": "external",
+    "sizeMB": 5.42,
+    "previewSha256": "98f454f967233b0e5471246755a8c9c91f57868f01eea440bbd96bdde584bc35"
+  },
+  {
+    "id": "sheenchair",
+    "source": "viewer",
+    "name": "Sheen Chair",
+    "tag": "Fuzz",
+    "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/main/Models/SheenChair/glTF-Binary/SheenChair.glb",
+    "license": "CC0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "credit": "Khronos glTF Sample Assets",
+    "sourceUrl": "https://github.com/KhronosGroup/glTF-Sample-Assets/tree/main/Models/SheenChair",
+    "bytes": 4125648,
+    "camera": {
+      "position": [
+        0.6784507811122752,
+        0.8774696398007454,
+        1.223957608727744
+      ],
+      "target": [
+        0,
+        0.36812353892499994,
+        0
+      ],
+      "fov": 35,
+      "space": "grounded"
+    },
+    "background": "environment",
+    "delivery": "external",
+    "sizeMB": 4.13,
+    "previewSha256": "8811a2a936f8ca66bd15a96e54066159924b5a92c839453c64f71c9c565bc48d"
+  },
+  {
     "id": "wooden-chess",
     "uid": "90151fb0fb294e56b45e52b001a884db",
     "name": "Wooden Chess Set",

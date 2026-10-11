@@ -45,3 +45,23 @@ test('builds mixed delivery URLs with all screenshots on a pinned GitHub version
   assert.throws(() => buildCatalog(entries, 'main'), /immutable/);
   assert.throws(() => buildCatalog([{ id: 'pending', delivery: 'r2' }], 'v0.1.0'), /upload/);
 });
+
+test('publishes procedural and external models without inventing GitHub GLB paths', () => {
+  const camera={position:[1,2,3],target:[0,0,0],fov:35,space:'grounded'};
+  const common={license:'CC0',credit:'Author',sourceUrl:'https://example.com/source',camera};
+  const source='https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/main/Models/ToyCar/glTF-Binary/ToyCar.glb';
+  const output=buildCatalog([
+    {...common,id:'spheres',delivery:'external',url:null,bytes:0},
+    {...common,id:'toycar',delivery:'external',url:source,bytes:1024**2},
+    {...common,id:'private',reviewOnly:true,delivery:'local',bytes:100}
+  ],'v0.1.0');
+  assert.equal(output.length,2);
+  assert.equal(output[0].url,null);
+  assert.equal(output[0].sizeMB,undefined);
+  assert.equal(output[1].url,source);
+  assert.equal(output[1].sizeMB,1);
+  assert.deepEqual(output[1].camera,camera);
+  assert.match(output[0].thumbnail,/@v0\.1\.0\/assets\/spheres\/thumbnail\.webp$/);
+  assert.match(output[1].attributionUrl,/@v0\.1\.0\/assets\/toycar\/attribution\.json$/);
+  assert.throws(()=>buildCatalog([{...common,id:'bad',delivery:'external',url:undefined}],'v0.1.0'),/external model URL/);
+});

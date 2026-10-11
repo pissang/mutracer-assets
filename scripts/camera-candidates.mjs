@@ -21,7 +21,7 @@ try {
     const cameras=[]; const layers=[];
     for(const [index,view] of views.entries()) {
       const file=path.join(directory,`${index+1}.webp`);
-      const result=await renderer.render(path.join(root,'work/import',model.id,'model.glb'),file,{view});
+      const result=await renderer.render(model.delivery==='external'?{url:model.url,background:model.background}:path.join(root,'work/import',model.id,'model.glb'),file,{view});
       cameras.push({index:index+1,view,camera:result.camera});
       const label=Buffer.from(`<svg width="480" height="26"><rect width="480" height="26" fill="#14161b"/><text x="12" y="19" fill="white" font-size="16">${index+1}: azimuth ${view.azimuth}°, elevation ${view.elevation}°</text></svg>`);
       layers.push({input:file,left:index%3*width,top:Math.floor(index/3)*(height+26)},{input:label,left:index%3*width,top:Math.floor(index/3)*(height+26)+height});

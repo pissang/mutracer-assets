@@ -1,0 +1,27 @@
+{
+  "title": "Blender Cover Remix",
+  "author": "bandinopla",
+  "authorUrl": "https://sketchfab.com/pablobandinopla",
+  "sourceUrl": "https://sketchfab.com/3d-models/blender-cover-remix-a38f11890ff141c88fcdac6b637fdaf8",
+  "license": "CC-BY 4.0",
+  "licenseUrl": "http://creativecommons.org/licenses/by/4.0/",
+  "description": "Entry for the [Make a Splash in Amsterdam](https://blenderartists.org/t/wip-log-junk-shop-renderman/1400567) contest!\nCombined 2 Blender covers into one scene. I also did a complete retopology of the models to reduce poly-count. Some other modifications on the characters too.",
+  "changes": "Repacked as a single GLB; textures limited to 1024px; geometry compressed/quantized with gltf-transform Meshopt without simplification; PNG textures compressed with lossless WebP; default camera embedded; preview rendered with MuTracer and denoised with OIDN standard.",
+  "additionalCredits": [
+    {
+      "name": "Juri Unt",
+      "contribution": "Blender Man",
+      "source": "Credits texture embedded in the downloaded model"
+    },
+    {
+      "name": "Alex Treviño",
+      "contribution": "The JunkShop — 3D",
+      "source": "Credits texture embedded in the downloaded model"
+    },
+    {
+      "name": "Anais Maamar",
+      "contribution": "The JunkShop — concept",
+      "source": "Credits texture embedded in the downloaded model"
+    }
+  ]
+}

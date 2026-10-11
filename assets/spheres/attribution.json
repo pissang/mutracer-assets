@@ -1,0 +1,8 @@
+{
+  "title": "Material spheres",
+  "author": "Procedural scene by Yi Shen",
+  "sourceUrl": "https://github.com/pissang/mutracer",
+  "license": "CC0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "changes": "Preview rendered with MuTracer Studio Light and OIDN standard; 720 × 405 WebP at quality 80%. Default camera stored in the public presets. Original model remains procedural or is loaded unchanged from Khronos."
+}

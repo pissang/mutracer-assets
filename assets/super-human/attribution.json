@@ -1,0 +1,10 @@
+{
+  "title": "Super Human",
+  "author": "Davyd Vidiger",
+  "authorUrl": "https://sketchfab.com/cryunreal",
+  "sourceUrl": "https://sketchfab.com/3d-models/super-human-7aa58e978b9f4357b8e73d8e0440c896",
+  "license": "CC-BY 4.0",
+  "licenseUrl": "http://creativecommons.org/licenses/by/4.0/",
+  "description": "Sculpt was made in 3D-Coat",
+  "changes": "Repacked as a single GLB; textures limited to 1024px; geometry compressed/quantized with gltf-transform Meshopt without simplification; PNG textures compressed with lossless WebP; default camera embedded; preview rendered with MuTracer and denoised with OIDN standard."
+}
