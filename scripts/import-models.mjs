@@ -58,7 +58,7 @@ GLBs larger than 20 MB are staged in ignored work/r2; previews always go to asse
       return configured.find((entry) => entry.uid === uid) || { uid, id: uid };
     }) : configured;
     for (const entry of selected) {
-      if (entry.source !== 'viewer') entry.uid = modelUid(entry.uid);
+      if (entry.source !== 'viewer' && entry.source !== 'archive') entry.uid = modelUid(entry.uid);
       if (!/^[a-z0-9-]+$/.test(entry.id)) throw new Error('Invalid model ID');
     }
     renderer = await createAssetRenderer(options);
@@ -84,6 +84,7 @@ GLBs larger than 20 MB are staged in ignored work/r2; previews always go to asse
           credit = JSON.parse(await readFile(path.join(dir, 'attribution.json'), 'utf8'));
         } else {
           console.log(`Downloading ${entry.id}`);
+          if (entry.source === 'archive') throw new Error(`Seed the converted archive and attribution in work/import/${entry.id} before importing`);
           const downloaded = await downloadModel(entry.uid, {reviewOnly:!!entry.reviewOnly,nonCommercial:entry.nonCommercial===true});
           credit = downloaded.credit;
           await writeFile(glbFile, downloaded.glb);
@@ -94,7 +95,7 @@ GLBs larger than 20 MB are staged in ignored work/r2; previews always go to asse
         const original=path.join(dir,'download.glb');
         if (!(await stat(original).then(()=>true,()=>false))) await cp(glbFile,original);
         if (entry.additionalCredits) credit.additionalCredits = entry.additionalCredits;
-        credit.changes = `Repacked as a single GLB; textures limited to ${options.textureSize}px; geometry compressed/quantized with gltf-transform Meshopt without simplification; PNG textures compressed with lossless WebP; default camera embedded; preview rendered with MuTracer and denoised with OIDN standard.`;
+        credit.changes = `Repacked as a single GLB; textures limited to ${options.textureSize}px; geometry compressed/quantized with gltf-transform Meshopt without simplification; PNG textures compressed with lossless WebP; default camera embedded; preview rendered with MuTracer and denoised with OIDN standard.${entry.changes ? ` ${entry.changes}` : ''}`;
         const processed = await limitTextures(await readFile(original),options.textureSize,credit,entry.camera);
         const compressed=await compressGLB(processed.glb,path.join(dir,'compression'),root);
         await writeFile(glbFile,compressed.glb);

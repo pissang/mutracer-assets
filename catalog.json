@@ -1596,5 +1596,44 @@
     "r2Bucket": "mutracer-assets",
     "r2Key": "models/blender-cover-remix/4c918299ecc8ef28fee4e5ac/model.glb",
     "r2Url": "https://mutracer-assets.meimu-studio.com/models/blender-cover-remix/4c918299ecc8ef28fee4e5ac/model.glb"
+  },
+  {
+    "id": "dragon",
+    "name": "Dragon",
+    "tag": "Character / sculpture",
+    "license": "CC-BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+    "credit": "Delatronic",
+    "sourceUrl": "https://benedikt-bitterli.me/resources/",
+    "sizeMB": 4.99,
+    "bytes": 4987784,
+    "delivery": "github",
+    "sha256": "8de295425710f6a1b9e980bbd298fba1ba428925282b787268f2bf6b63b0f9b3",
+    "textureSize": 1024,
+    "compression": {
+      "tool": "gltf-transform",
+      "version": "4.5.1",
+      "inputBytes": 23489316,
+      "outputBytes": 4987784,
+      "compressed": true,
+      "geometry": "Meshopt (16-bit positions, 12-bit normals, 14-bit UVs)",
+      "textures": "lossless WebP for PNG; JPEG unchanged",
+      "images": []
+    },
+    "materialNotes": "Dragon uses high-transmission icy-blue glass; the display base uses clear glass.",
+    "camera": {
+      "position": [
+        18.714262899540138,
+        14.363065172446849,
+        26.726737257626162
+      ],
+      "target": [
+        0,
+        9.203124034404755,
+        0
+      ],
+      "fov": 35,
+      "space": "grounded"
+    }
   }
 ]

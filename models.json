@@ -245,5 +245,28 @@
         "source": "Credits texture embedded in the downloaded model"
       }
     ]
+  },
+  {
+    "id": "dragon",
+    "source": "archive",
+    "name": "Dragon",
+    "tag": "Character / sculpture",
+    "camera": {
+      "position": [
+        18.714262899540138,
+        14.363065172446849,
+        26.726737257626162
+      ],
+      "target": [
+        0,
+        9.203124034404755,
+        0
+      ],
+      "fov": 35,
+      "space": "grounded"
+    },
+    "cameraReason": "低机位三分之四近景，龙身略偏画面上方，同时为双翼保留边缘空间",
+    "materialNotes": "Dragon uses high-transmission icy-blue glass; the display base uses clear glass.",
+    "changes": "The DragonBSDF uses full transmission, IOR 1.5, zero roughness and pale blue volume absorption; the pedestal uses the colorless MuTracer Glass preset."
   }
 ]

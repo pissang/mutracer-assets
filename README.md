@@ -167,6 +167,7 @@ your next commit.
 ## Licenses
 
 Every Sketchfab download checks Sketchfab's current license and download availability.
+Archive-based scenes retain their original license and creator credits; the catalog accepts CC BY 3.0 alongside CC0 and CC BY 4.0.
 Public NC assets require an explicit `nonCommercial: true` decision. Free
 Standard permits local previews but not standalone GLB redistribution.
 `assets/<id>/attribution.json` retains the original author,

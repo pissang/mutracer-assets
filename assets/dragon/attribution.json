@@ -1,0 +1,17 @@
+{
+  "title": "Dragon",
+  "author": "Delatronic",
+  "authorUrl": "https://www.blendswap.com/user/Delatronic",
+  "sourceUrl": "https://benedikt-bitterli.me/resources/",
+  "license": "CC-BY 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+  "description": "Dragon model by Delatronic, originally shared on Blend Swap at https://www.blendswap.com/blends/view/80766. The converted Mitsuba scene is distributed as part of Benedikt Bitterli's Rendering Resources collection.",
+  "additionalCredits": [
+    {
+      "name": "Benedikt Bitterli",
+      "contribution": "Mitsuba scene conversion and resource packaging",
+      "source": "https://benedikt-bitterli.me/resources/"
+    }
+  ],
+  "changes": "Repacked as a single GLB; textures limited to 1024px; geometry compressed/quantized with gltf-transform Meshopt without simplification; PNG textures compressed with lossless WebP; default camera embedded; preview rendered with MuTracer and denoised with OIDN standard. The DragonBSDF uses full transmission, IOR 1.5, zero roughness and pale blue volume absorption; the pedestal uses the colorless MuTracer Glass preset."
+}
