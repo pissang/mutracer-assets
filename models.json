@@ -165,27 +165,6 @@
     "cameraReason": "低位靠近面部与胸部，腿部裁切以强调体量"
   },
   {
-    "id": "sci-fi-box",
-    "uid": "c42695379c814cbcb0469c41b14f0259",
-    "tag": "Sci-fi / metal",
-    "camera": {
-      "position": [
-        -3.156733574317115,
-        2.2358894476563917,
-        4.508282761976899
-      ],
-      "target": [
-        0,
-        0.8636885905228607,
-        0
-      ],
-      "fov": 35,
-      "space": "grounded"
-    },
-    "cameraReason": "低位三分之四角度突出浅色箱体与金属槽，箱体边缘允许裁切",
-    "materialNotes": "箱体表面有细节和局部明暗贴图；可查看金属反射，需对照筛选。"
-  },
-  {
     "id": "octopus-tea-bath",
     "uid": "107260cf0fd24202a67eb037a6c760a5",
     "tag": "Cartoon / ceramic",

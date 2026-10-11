@@ -655,16 +655,16 @@
     "licenseUrl": "http://creativecommons.org/licenses/by/4.0/",
     "credit": "Davyd Vidiger",
     "sourceUrl": "https://sketchfab.com/3d-models/super-human-7aa58e978b9f4357b8e73d8e0440c896",
-    "sizeMB": 3.85,
-    "bytes": 3848000,
+    "sizeMB": 3.67,
+    "bytes": 3848024,
     "delivery": "github",
-    "sha256": "a8d5bdf3d06014eccdff2364aecaa3f5c4ffe0c235f214f5951db1348b21b495",
+    "sha256": "9686703fb32a7fac5f29b349f568ce4b0d1e6d55b297893bc2af0365b57b78b1",
     "textureSize": 1024,
     "compression": {
       "tool": "gltf-transform",
       "version": "4.5.1",
       "inputBytes": 10073148,
-      "outputBytes": 3848000,
+      "outputBytes": 3848024,
       "compressed": true,
       "geometry": "Meshopt (16-bit positions, 12-bit normals, 14-bit UVs)",
       "textures": "lossless WebP for PNG; JPEG unchanged",
@@ -695,87 +695,6 @@
       "target": [
         0,
         153.57456298828126,
-        0
-      ],
-      "fov": 35,
-      "space": "grounded"
-    }
-  },
-  {
-    "id": "sci-fi-box",
-    "uid": "c42695379c814cbcb0469c41b14f0259",
-    "name": "Sci-fi Box",
-    "tag": "Sci-fi / metal",
-    "license": "CC-BY 4.0",
-    "licenseUrl": "http://creativecommons.org/licenses/by/4.0/",
-    "credit": "Martin Trafas",
-    "sourceUrl": "https://sketchfab.com/3d-models/sci-fi-box-c42695379c814cbcb0469c41b14f0259",
-    "sizeMB": 5.9,
-    "bytes": 5899336,
-    "delivery": "github",
-    "sha256": "e45423ef4a887ec4d73ef9561174978f0d54019e0c8f8fd9a734b58dadbd17fc",
-    "textureSize": 1024,
-    "compression": {
-      "tool": "gltf-transform",
-      "version": "4.5.1",
-      "inputBytes": 8058396,
-      "outputBytes": 5899336,
-      "compressed": true,
-      "geometry": "Meshopt (16-bit positions, 12-bit normals, 14-bit UVs)",
-      "textures": "lossless WebP for PNG; JPEG unchanged",
-      "images": [
-        {
-          "width": 1024,
-          "height": 1024,
-          "mimeType": "image/webp"
-        },
-        {
-          "width": 1024,
-          "height": 1024,
-          "mimeType": "image/webp"
-        },
-        {
-          "width": 1024,
-          "height": 1024,
-          "mimeType": "image/webp"
-        },
-        {
-          "width": 1024,
-          "height": 1024,
-          "mimeType": "image/webp"
-        },
-        {
-          "width": 1024,
-          "height": 1024,
-          "mimeType": "image/webp"
-        },
-        {
-          "width": 1024,
-          "height": 1024,
-          "mimeType": "image/webp"
-        },
-        {
-          "width": 1024,
-          "height": 1024,
-          "mimeType": "image/webp"
-        },
-        {
-          "width": 1024,
-          "height": 1024,
-          "mimeType": "image/webp"
-        }
-      ]
-    },
-    "materialNotes": "箱体表面有细节和局部明暗贴图；可查看金属反射，需对照筛选。",
-    "camera": {
-      "position": [
-        -3.156733574317115,
-        2.2358894476563917,
-        4.508282761976899
-      ],
-      "target": [
-        0,
-        0.8636885905228607,
         0
       ],
       "fov": 35,
