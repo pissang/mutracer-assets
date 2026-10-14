@@ -36,14 +36,15 @@ test('enforces both per-file and snapshot limits without reading large fixtures'
   assert.throws(() => checkSizes([{ path: 'model.glb', size: MAX_FILE + 1 }]), /20 MB/);
   assert.throws(() => checkSizes(Array.from({ length: 8 }, (_, i) => ({ path: `${i}.glb`, size: MAX_PACKAGE / 8 + 1 }))), /150 MB/);
 });
-test('builds mixed delivery URLs with all screenshots on a pinned GitHub version', () => {
+test('builds mixed delivery URLs with all screenshots on the GitHub branch', () => {
   const entries = [{ id: 'coffee', delivery: 'github', bytes: 100 }, { id: 'bottle', delivery: 'r2', r2Url: 'https://assets.example/bottle.glb', bytes: 30000000 }];
-  const output = buildCatalog(entries, 'v0.1.0');
-  assert.equal(output[0].url, 'https://cdn.jsdelivr.net/gh/pissang/mutracer-assets@v0.1.0/assets/coffee/model.glb');
+  const output = buildCatalog(entries);
+  assert.equal(output[0].url, 'https://cdn.jsdelivr.net/gh/pissang/mutracer-assets@main/assets/coffee/model.glb');
   assert.equal(output[1].url, entries[1].r2Url);
-  assert.match(output[1].thumbnail, /^https:\/\/cdn.jsdelivr.net\/gh\/pissang\/mutracer-assets@v0.1.0\//);
-  assert.throws(() => buildCatalog(entries, 'main'), /immutable/);
-  assert.throws(() => buildCatalog([{ id: 'pending', delivery: 'r2' }], 'v0.1.0'), /upload/);
+  assert.match(output[1].thumbnail, /^https:\/\/cdn.jsdelivr.net\/gh\/pissang\/mutracer-assets@main\//);
+  assert.match(buildCatalog(entries, 'v0.1.0')[0].url, /@v0\.1\.0\/assets\/coffee\/model\.glb$/);
+  assert.throws(() => buildCatalog(entries, '../main'), /Git ref/);
+  assert.throws(() => buildCatalog([{ id: 'pending', delivery: 'r2' }]), /upload/);
 });
 
 test('publishes procedural and external models without inventing GitHub GLB paths', () => {

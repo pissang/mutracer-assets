@@ -139,25 +139,33 @@ After reviewing and uploading any retained R2 models:
 
 ```bash
 npm run check
-npm run catalog -- --version v0.1.0
+npm run catalog
 npm test
 git add assets models.json catalog.json presets.json
 git commit -m "Add reviewed viewer models"
-git tag v0.1.0
 git push origin main
-git push origin v0.1.0
 ```
 
 For the first commit, also add the scripts, package files, README, LICENSE and
-dotfiles. All GitHub commits, tags and pushes are manual. No script invokes
-`git commit`, `git tag` or `git push`. `npm run catalog` only writes `presets.json`.
-Use a new immutable tag for every published version; do not move old tags.
-The generated URLs look like:
+dotfiles. All GitHub commits and pushes are manual. No script invokes
+`git commit` or `git push`. `npm run catalog` only writes `presets.json`.
+The generated URLs follow the `main` branch, so a push publishes without a tag:
 
 ```text
-https://cdn.jsdelivr.net/gh/pissang/mutracer-assets@v0.1.0/assets/wooden-chess/model.glb
-https://cdn.jsdelivr.net/gh/pissang/mutracer-assets@v0.1.0/assets/wooden-chess/thumbnail.webp
+https://cdn.jsdelivr.net/gh/pissang/mutracer-assets@main/assets/wooden-chess/model.glb
+https://cdn.jsdelivr.net/gh/pissang/mutracer-assets@main/assets/wooden-chess/thumbnail.webp
 ```
+
+jsDelivr caches branch URLs for up to 12 hours. To publish a replaced file
+sooner, purge it by swapping `cdn.jsdelivr.net` for `purge.jsdelivr.net`:
+
+```bash
+curl https://purge.jsdelivr.net/gh/pissang/mutracer-assets@main/assets/wooden-chess/thumbnail.webp
+```
+
+New models need no purge. Keep a model's files at the same path once published,
+or ship the matching viewer change only after the purge. `npm run catalog -- --ref v0.1.0`
+still pins a tag or full commit SHA when needed.
 
 `presets.json` is a viewer-compatible model list. R2 models have an R2 `url`
 and a jsDelivr `thumbnail`. Add reviewed entries to the MuTracer viewer while
