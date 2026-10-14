@@ -1,0 +1,10 @@
+{
+  "title": "LEGO Technic Bugatti Chiron",
+  "author": "VTX",
+  "authorUrl": "https://sketchfab.com/VTX_car",
+  "sourceUrl": "https://sketchfab.com/3d-models/lego-technic-bugatti-chiron-c2a54e2e979a4905b859c1533b498221",
+  "license": "CC-BY-NC-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "description": "LEGO Technic Bugatti Chiron",
+  "changes": "Repacked as a single GLB; textures limited to 1024px; geometry compressed/quantized with gltf-transform Meshopt without simplification; PNG textures compressed with lossless WebP; default camera embedded; preview rendered with MuTracer and denoised with OIDN standard. Repeated geometry represented using glTF instancing; no mesh simplification is applied."
+}

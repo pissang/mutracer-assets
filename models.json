@@ -247,6 +247,29 @@
     ]
   },
   {
+    "id": "bugatti-chiron",
+    "uid": "c2a54e2e979a4905b859c1533b498221",
+    "tag": "Sports car / Technic",
+    "nonCommercial": true,
+    "instance": true,
+    "camera": {
+      "position": [
+        4.55,
+        2.64,
+        4.96
+      ],
+      "target": [
+        -0.12,
+        0.55,
+        0.12
+      ],
+      "fov": 35,
+      "space": "grounded"
+    },
+    "cameraReason": "低机位车头左前方三分之四近景，参考用户提供的视角并略微放大，突出前格栅、引擎舱和侧面细节",
+    "changes": "Repeated geometry represented using glTF instancing; no mesh simplification is applied."
+  },
+  {
     "id": "dragon",
     "source": "archive",
     "name": "Dragon",

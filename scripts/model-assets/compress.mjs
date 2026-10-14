@@ -9,18 +9,22 @@ import {saveJSON} from './catalog-lock.mjs';
 
 const execute=promisify(execFile);
 /** Compress only: no simplification, flattening, joining or material substitution. */
-export async function compressGLB(bytes,directory,root) {
+export async function compressGLB(bytes,directory,root,{instance=false}={}) {
   await mkdir(directory,{recursive:true});
   const cli=path.join(root,'node_modules/@gltf-transform/cli/bin/cli.js');
   const version=JSON.parse(await readFile(path.join(root,'node_modules/@gltf-transform/cli/package.json'),'utf8')).version;
-  const signature=JSON.stringify({sha256:createHash('sha256').update(bytes).digest('hex'),version,webp:'png-lossless',meshopt:'medium',positionBits:16,normalBits:12,uvBits:14});
+  const meshoptLevel=instance?'high':'medium';
+  const signature=JSON.stringify({sha256:createHash('sha256').update(bytes).digest('hex'),version,webp:'png-lossless',meshopt:meshoptLevel,positionBits:16,normalBits:12,uvBits:14,instance});
   const output=path.join(directory,'model.glb'),settings=path.join(directory,'settings.json');
   if(await readFile(settings,'utf8').then(value=>value===signature,()=>false)) return {glb:await readFile(output),stats:JSON.parse(await readFile(path.join(directory,'stats.json'),'utf8'))};
   const source=decodeGLB(bytes);
   const input=path.join(directory,'input.glb'),webp=path.join(directory,'textures.glb');
   await writeFile(input,bytes);
   const env={...process.env}; delete env.SKETCHFAB_API_TOKEN;delete env.SKETCHFAB_ACCESS_TOKEN;
-  for(const args of [['webp',input,webp,'--formats','png','--lossless','true','--effort','70'],['meshopt',webp,output,'--level','medium','--quantize-position','16','--quantize-normal','12','--quantize-texcoord','14']]) {
+  const geometryArgs=instance
+    ? ['optimize',webp,output,'--compress','meshopt','--simplify','false','--flatten','false','--join','false','--instance','true','--palette','false','--meshopt-level',meshoptLevel]
+    : ['meshopt',webp,output,'--level','medium','--quantize-position','16','--quantize-normal','12','--quantize-texcoord','14'];
+  for(const args of [['webp',input,webp,'--formats','png','--lossless','true','--effort','70'],geometryArgs]) {
     const result=await execute(process.execPath,[cli,...args],{cwd:root,env,timeout:180000,maxBuffer:4*1024**2});
     if (/not registered|unsupported extension/i.test(result.stdout+result.stderr)) throw new Error('gltf-transform cannot preserve one of the model extensions');
   }
@@ -44,7 +48,7 @@ export async function compressGLB(bytes,directory,root) {
   // Retain the smaller result if compression overhead exceeds the savings.
   const compressed=glb.length<bytes.length;
   if(!compressed) glb=bytes;
-  const stats={tool:'gltf-transform',version,inputBytes:bytes.length,outputBytes:glb.length,compressed,geometry:'Meshopt (16-bit positions, 12-bit normals, 14-bit UVs)',textures:'lossless WebP for PNG; JPEG unchanged',images};
+  const stats={tool:'gltf-transform',version,inputBytes:bytes.length,outputBytes:glb.length,compressed,geometry:`Meshopt (16-bit positions, 12-bit normals, 14-bit UVs)${instance?'; repeated meshes instanced':''}`,textures:'lossless WebP for PNG; JPEG unchanged',images};
   await writeFile(output,glb);await writeFile(settings,signature);await saveJSON(path.join(directory,'stats.json'),stats);
   return {glb,stats};
 }

@@ -118,10 +118,11 @@ export async function createAssetRenderer(options) {
             return !state.loading && state.stats.samples > 0;
           }, null, { timeout: options.timeout });
           const rendered = await page.evaluate(async ({ width, height, samples, previewQuality = 0.8 }) => {
-            const renderer = window.assetEngine.renderer;
-            if (!renderer.isUsingWebGPU()) throw new Error('Asset previews require WebGPU for OIDN denoising');
-            await renderer.setDenoiser({ type: 'oidn', model: 'standard', whileConverging: false, weightsBaseUrl: new URL('/oidn/weights/',location.href).href });
-            if (!renderer.oidn) throw new Error('OIDN did not attach to the renderer');
+            const renderer = window.assetEngine.engine;
+            const final = window.assetEngine.final;
+            if (renderer.backend !== 'webgpu') throw new Error('Asset previews require WebGPU for OIDN denoising');
+            await final.setDenoiser({ type: 'oidn', model: 'standard', weightsBaseUrl: new URL('/oidn/weights/',location.href).href });
+            if (!final.denoiser) throw new Error('OIDN did not attach to the final render');
             let denoised=false;
             const unsubscribe=window.assetStore.subscribe(state=>{if(state.export?.stage==='denoising') denoised=true;});
             let blob;
@@ -129,7 +130,7 @@ export async function createAssetRenderer(options) {
               blob = await window.assetEngine.renderImage({ width, height, samples, transparent: false }, 'image/webp', previewQuality);
             } finally {unsubscribe();}
             if (!denoised) throw new Error('Offline preview did not run the denoising pass');
-            if (!renderer.oidn) throw new Error('OIDN was detached during the offline render');
+            if (!final.denoiser) throw new Error('OIDN was detached during the offline render');
             const bytes = new Uint8Array(await blob.arrayBuffer());
             let binary = '';
             for (const byte of bytes) binary += String.fromCharCode(byte);

@@ -97,7 +97,7 @@ GLBs larger than 20 MB are staged in ignored work/r2; previews always go to asse
         if (entry.additionalCredits) credit.additionalCredits = entry.additionalCredits;
         credit.changes = `Repacked as a single GLB; textures limited to ${options.textureSize}px; geometry compressed/quantized with gltf-transform Meshopt without simplification; PNG textures compressed with lossless WebP; default camera embedded; preview rendered with MuTracer and denoised with OIDN standard.${entry.changes ? ` ${entry.changes}` : ''}`;
         const processed = await limitTextures(await readFile(original),options.textureSize,credit,entry.camera);
-        const compressed=await compressGLB(processed.glb,path.join(dir,'compression'),root);
+        const compressed=await compressGLB(processed.glb,path.join(dir,'compression'),root,{instance:entry.instance===true});
         await writeFile(glbFile,compressed.glb);
         await saveJSON(path.join(dir,'attribution.json'),credit);
         await saveJSON(path.join(dir,'texture-stats.json'),processed.stats);

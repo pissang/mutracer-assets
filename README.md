@@ -53,7 +53,9 @@ Original downloads remain in ignored `work/import/<id>/download.glb`.
 Before rendering or publication, gltf-transform converts PNG textures to
 lossless WebP and compresses geometry/animation with Meshopt (16-bit positions,
 12-bit normals, 14-bit UVs). JPEG textures remain unchanged. No mesh simplification
-or scene flattening is applied. Results are cached under ignored
+or scene flattening is applied. Selection entries may set `instance: true` to
+reuse repeated meshes through glTF instancing while preserving their transforms
+and materials. Results are cached under ignored
 `work/import/<id>/compression` and are used only if smaller. The pipeline checks
 extensions, credits, texture dimensions and the camera after compression, then
 renders the compressed GLB with the viewer's bundled Meshopt decoder.

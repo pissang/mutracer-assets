@@ -1635,5 +1635,45 @@
       "fov": 35,
       "space": "grounded"
     }
+  },
+  {
+    "id": "bugatti-chiron",
+    "uid": "c2a54e2e979a4905b859c1533b498221",
+    "name": "LEGO Technic Bugatti Chiron",
+    "tag": "Sports car / Technic",
+    "license": "CC-BY-NC-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+    "credit": "VTX",
+    "sourceUrl": "https://sketchfab.com/3d-models/lego-technic-bugatti-chiron-c2a54e2e979a4905b859c1533b498221",
+    "sizeMB": 13.44,
+    "bytes": 13436372,
+    "delivery": "github",
+    "sha256": "f4aa08500ee999245188581afc53a0ce6db169b0a66079eba2bea794e4efc5cb",
+    "textureSize": 1024,
+    "compression": {
+      "tool": "gltf-transform",
+      "version": "4.5.1",
+      "inputBytes": 436678728,
+      "outputBytes": 13436372,
+      "compressed": true,
+      "geometry": "Meshopt (16-bit positions, 12-bit normals, 14-bit UVs); repeated meshes instanced",
+      "textures": "lossless WebP for PNG; JPEG unchanged",
+      "images": []
+    },
+    "nonCommercial": true,
+    "camera": {
+      "position": [
+        4.55,
+        2.64,
+        4.96
+      ],
+      "target": [
+        -0.12,
+        0.55,
+        0.12
+      ],
+      "fov": 35,
+      "space": "grounded"
+    }
   }
 ]
