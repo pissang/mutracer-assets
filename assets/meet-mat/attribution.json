@@ -1,0 +1,10 @@
+{
+  "title": "Meet MAT",
+  "author": "Adobe substance 3D",
+  "authorUrl": "https://sketchfab.com/substance3D",
+  "sourceUrl": "https://sketchfab.com/3d-models/meet-mat-6d467069570e48c99a5fd5e6db53561b",
+  "license": "CC-BY-NC 4.0",
+  "licenseUrl": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "description": "MAT is the model of the contest \"[Meet MAT: The 2017 Substance 3D Painting Contest](https://www.allegorithmic.com/contest/meet-mat-2017-substance-3d-painting-contest)\" \n\nYou can watch a [tutorial](https://www.youtube.com/watch?v=3hKrLhRNeII) giving you all the info you need about this contest here. \n\nHave fun and make MAT come to life under your brushstrokes, join the contest!",
+  "changes": "Repacked as a single GLB; textures limited to 1024px; geometry compressed/quantized with gltf-transform Meshopt without simplification; PNG textures compressed with lossless WebP; default camera embedded; preview rendered with MuTracer and denoised with OIDN standard."
+}

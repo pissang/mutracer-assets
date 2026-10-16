@@ -1,0 +1,10 @@
+{
+  "title": "2024 Porsche 992 GT3 R",
+  "author": "Dave",
+  "authorUrl": "https://sketchfab.com/Tyler_Dave",
+  "sourceUrl": "https://sketchfab.com/3d-models/2024-porsche-992-gt3-r-b76c9b2ae2d548c3869426eac4ab8a19",
+  "license": "CC-BY 4.0",
+  "licenseUrl": "http://creativecommons.org/licenses/by/4.0/",
+  "description": "The Porsche 992 GT3 R is GT3 race car built by German car manufacturer Porsche, based on the 992 GT3 road car.\n\nThe new Porsche 911 GT3 is powered by a 4.2-litre flat-six engine based on the 992-generation 911, delivering around 565 hp and optimized for a wide range of driver experiences, due to the large number of amateurs expected to compete with it. The engine is located in the rear, tilted forward to improve weight balance and create space for the underbody diffuser. It is paired with a six-speed sequential gearbox.\n\nThe car’s suspension, derived from the 911 RSR, features a double wishbone front layout and multi-link rear, with adjustable KW shock absorbers offering five settings. The car’s underbody is designed to enhance airflow to the rear diffuser, while its increased wheelbase improves rear tire performance and consistency.\n\n![](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2x-golyBJBXmp9g6dqEDdHbiLGBlby1qm-LW-41RKP2mLxQ66LOp4FAc&s=10)",
+  "changes": "Repacked as a single GLB; textures limited to 1024px; geometry compressed/quantized with gltf-transform Meshopt without simplification; PNG textures compressed with lossless WebP; default camera embedded; preview rendered with MuTracer and denoised with OIDN standard. Scene scaled uniformly by 10×. Scene root uniformly scaled by 10× at the user's request; geometry and materials otherwise retained."
+}

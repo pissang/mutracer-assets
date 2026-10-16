@@ -134,6 +134,22 @@ export function decodeGLB(bytes) {
   return { json, bin };
 }
 
+/** Uniformly scale the active scene's root transforms without rewriting mesh data. */
+export function scaleSceneRoots(bytes, scale) {
+  if (!Number.isFinite(scale) || scale <= 0) throw new Error('Scene scale must be a positive finite number');
+  if (scale === 1) return bytes;
+  const { json, bin } = decodeGLB(bytes);
+  const scene = json.scenes?.[json.scene || 0];
+  if (!scene?.nodes?.length) throw new Error('Cannot scale a GLB without active scene roots');
+  for (const index of new Set(scene.nodes)) {
+    const node = json.nodes?.[index];
+    if (!node) throw new Error(`Invalid scene root node: ${index}`);
+    if (node.matrix) node.matrix = node.matrix.map(value => value * scale);
+    else node.scale = (node.scale || [1, 1, 1]).map(value => value * scale);
+  }
+  return encodeGLB(json, bin);
+}
+
 export function archiveToGLB(bytes, credit) {
   const files = unpackArchive(bytes);
   const entries = Object.keys(files).filter((name) => /\.gltf$/i.test(name));

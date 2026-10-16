@@ -270,6 +270,51 @@
     "changes": "Repeated geometry represented using glTF instancing; no mesh simplification is applied."
   },
   {
+    "id": "porsche-992-gt3-r",
+    "uid": "b76c9b2ae2d548c3869426eac4ab8a19",
+    "tag": "Racing car / paint",
+    "scale": 10,
+    "cameraReason": "低机位车头左前方三分之四近景；加大画面占比，并平移目标点把赛车完整主体置于画面中心。",
+    "changes": "Scene root uniformly scaled by 10× at the user's request; geometry and materials otherwise retained.",
+    "materialNotes": "Highly detailed racing livery and interior textures; assess for visible baked shading during preview review.",
+    "camera": {
+      "position": [
+        0.2712064430369904,
+        0.1287580106001691,
+        0.44102664120744955
+      ],
+      "target": [
+        -0.025,
+        0,
+        0.018
+      ],
+      "fov": 35,
+      "space": "grounded"
+    }
+  },
+  {
+    "id": "meet-mat",
+    "uid": "6d467069570e48c99a5fd5e6db53561b",
+    "tag": "Character / materials",
+    "nonCommercial": true,
+    "camera": {
+      "position": [
+        3.3921231599736066,
+        2.7297770828719106,
+        4.8444539295400695
+      ],
+      "target": [
+        0,
+        1.255254701417779,
+        2.220446049250313e-16
+      ],
+      "fov": 35,
+      "space": "grounded"
+    },
+    "cameraReason": "低位正面三分之四视角，完整呈现角色、头部造型与底座，构图居中。",
+    "materialNotes": "模型为单一浅色的圆润角色造型，材质变化较少，主要呈现轮廓、柔和阴影与表面细节。"
+  },
+  {
     "id": "dragon",
     "source": "archive",
     "name": "Dragon",

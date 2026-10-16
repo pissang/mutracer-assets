@@ -1675,5 +1675,262 @@
       "fov": 35,
       "space": "grounded"
     }
+  },
+  {
+    "id": "porsche-992-gt3-r",
+    "uid": "b76c9b2ae2d548c3869426eac4ab8a19",
+    "name": "2024 Porsche 992 GT3 R",
+    "tag": "Racing car / paint",
+    "license": "CC-BY 4.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by/4.0/",
+    "credit": "Dave",
+    "sourceUrl": "https://sketchfab.com/3d-models/2024-porsche-992-gt3-r-b76c9b2ae2d548c3869426eac4ab8a19",
+    "sizeMB": 10.35,
+    "bytes": 10348276,
+    "delivery": "github",
+    "sha256": "b29c14e27ee6be710e241425e9b5acab9e2ca87e244d20c9db80f6168b8e7498",
+    "textureSize": 1024,
+    "compression": {
+      "tool": "gltf-transform",
+      "version": "4.5.1",
+      "inputBytes": 37173676,
+      "outputBytes": 10348276,
+      "compressed": true,
+      "geometry": "Meshopt (16-bit positions, 12-bit normals, 14-bit UVs)",
+      "textures": "lossless WebP for PNG; JPEG unchanged",
+      "images": [
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 256,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 128,
+          "height": 128,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 128,
+          "height": 128,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 256,
+          "height": 256,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 256,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 256,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 512,
+          "height": 256,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 128,
+          "height": 64,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 256,
+          "height": 256,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 256,
+          "height": 256,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 256,
+          "height": 256,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 4,
+          "height": 4,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "mimeType": "image/webp"
+        }
+      ]
+    },
+    "materialNotes": "Highly detailed racing livery and interior textures; assess for visible baked shading during preview review.",
+    "camera": {
+      "position": [
+        0.2712064430369904,
+        0.1287580106001691,
+        0.44102664120744955
+      ],
+      "target": [
+        -0.025,
+        0,
+        0.018
+      ],
+      "fov": 35,
+      "space": "grounded"
+    }
+  },
+  {
+    "id": "meet-mat",
+    "uid": "6d467069570e48c99a5fd5e6db53561b",
+    "name": "Meet MAT",
+    "tag": "Character / materials",
+    "license": "CC-BY-NC 4.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-nc/4.0/",
+    "credit": "Adobe substance 3D",
+    "sourceUrl": "https://sketchfab.com/3d-models/meet-mat-6d467069570e48c99a5fd5e6db53561b",
+    "sizeMB": 0.58,
+    "bytes": 581992,
+    "delivery": "github",
+    "sha256": "09505b8727b2aba005a909985ac5e39cbd37874f282399562eba1e29b1adfa11",
+    "textureSize": 1024,
+    "compression": {
+      "tool": "gltf-transform",
+      "version": "4.5.1",
+      "inputBytes": 2287988,
+      "outputBytes": 581992,
+      "compressed": true,
+      "geometry": "Meshopt (16-bit positions, 12-bit normals, 14-bit UVs)",
+      "textures": "lossless WebP for PNG; JPEG unchanged",
+      "images": []
+    },
+    "materialNotes": "模型为单一浅色的圆润角色造型，材质变化较少，主要呈现轮廓、柔和阴影与表面细节。",
+    "nonCommercial": true,
+    "camera": {
+      "position": [
+        3.3921231599736066,
+        2.7297770828719106,
+        4.8444539295400695
+      ],
+      "target": [
+        0,
+        1.255254701417779,
+        2.220446049250313e-16
+      ],
+      "fov": 35,
+      "space": "grounded"
+    }
   }
 ]

@@ -59,6 +59,8 @@ and materials. Results are cached under ignored
 `work/import/<id>/compression` and are used only if smaller. The pipeline checks
 extensions, credits, texture dimensions and the camera after compression, then
 renders the compressed GLB with the viewer's bundled Meshopt decoder.
+Selection entries may set `scale` to apply a uniform size multiplier before
+compression.
 
 Generate camera contact sheets with `npm run cameras -- --headless`, optionally
 `--model ID` and `--views '[{"azimuth":25,"elevation":3}]'`. Inspect
