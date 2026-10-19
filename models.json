@@ -336,5 +336,37 @@
     "cameraReason": "低机位三分之四近景，龙身略偏画面上方，同时为双翼保留边缘空间",
     "materialNotes": "Dragon uses high-transmission icy-blue glass; the display base uses clear glass.",
     "changes": "The DragonBSDF uses full transmission, IOR 1.5, zero roughness and pale blue volume absorption; the pedestal uses the colorless MuTracer Glass preset."
+  },
+  {
+    "id": "standard-shader-ball",
+    "source": "archive",
+    "name": "Standard Shader Ball",
+    "tag": "Glass / transmission",
+    "sourceUrl": "https://github.com/usd-wg/assets/tree/main/full_assets/StandardShaderBall",
+    "license": "CC-BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "credit": "Chris Rydalch",
+    "additionalCredits": [
+      "Specification and validation: André Mazzone. Original scene inspiration and consultation: Thomas Anagnostou."
+    ],
+    "description": "A material evaluation model designed to exercise reflective and transmissive properties. Converted from the two object GLBs distributed with OpenPBR-viewer; original Standard Shader Ball USD asset by Chris Rydalch.",
+    "materialNotes": "The outer shell uses clear transmissive glass; the neutral internal geometry remains visible through it.",
+    "camera": {
+      "position": [
+        2.62,
+        13.75,
+        14.86
+      ],
+      "target": [
+        0,
+        5,
+        0
+      ],
+      "fov": 35,
+      "space": "grounded"
+    },
+    "cameraReason": "参考近正面三分之四角度并提高俯视角，展现外壳开口和内部结构；近距离构图使模型保持居中。",
+    "compositionAdjusted": true,
+    "changes": "Merged the neutral and OpenPBR object GLBs distributed with OpenPBR-viewer and assigned a clear transmissive glass material to the outer shell."
   }
 ]

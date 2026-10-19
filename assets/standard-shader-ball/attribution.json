@@ -1,0 +1,12 @@
+{
+  "title": "Standard Shader Ball",
+  "author": "Chris Rydalch",
+  "sourceUrl": "https://github.com/usd-wg/assets/tree/main/full_assets/StandardShaderBall",
+  "license": "CC-BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+  "description": "A material evaluation model designed to exercise reflective and transmissive properties. Converted from the two object GLBs distributed with OpenPBR-viewer; original Standard Shader Ball USD asset by Chris Rydalch.",
+  "additionalCredits": [
+    "Specification and validation: André Mazzone. Original scene inspiration and consultation: Thomas Anagnostou."
+  ],
+  "changes": "Repacked as a single GLB; textures limited to 1024px; geometry compressed/quantized with gltf-transform Meshopt without simplification; PNG textures compressed with lossless WebP; default camera embedded; preview rendered with MuTracer and denoised with OIDN standard. Merged the neutral and OpenPBR object GLBs distributed with OpenPBR-viewer and assigned a clear transmissive glass material to the outer shell."
+}

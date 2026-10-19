@@ -1932,5 +1932,44 @@
       "fov": 35,
       "space": "grounded"
     }
+  },
+  {
+    "id": "standard-shader-ball",
+    "name": "Standard Shader Ball",
+    "tag": "Glass / transmission",
+    "license": "CC-BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "credit": "Chris Rydalch",
+    "sourceUrl": "https://github.com/usd-wg/assets/tree/main/full_assets/StandardShaderBall",
+    "sizeMB": 0.73,
+    "bytes": 731024,
+    "delivery": "github",
+    "sha256": "09fce3694840a26b7c0aea574b645ab6a08edabd3de2d79ea5cbbd23084bdf66",
+    "textureSize": 1024,
+    "compression": {
+      "tool": "gltf-transform",
+      "version": "4.5.1",
+      "inputBytes": 2206984,
+      "outputBytes": 731024,
+      "compressed": true,
+      "geometry": "Meshopt (16-bit positions, 12-bit normals, 14-bit UVs)",
+      "textures": "lossless WebP for PNG; JPEG unchanged",
+      "images": []
+    },
+    "materialNotes": "The outer shell uses clear transmissive glass; the neutral internal geometry remains visible through it.",
+    "camera": {
+      "position": [
+        2.62,
+        13.75,
+        14.86
+      ],
+      "target": [
+        0,
+        5,
+        0
+      ],
+      "fov": 35,
+      "space": "grounded"
+    }
   }
 ]
