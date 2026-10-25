@@ -5,17 +5,15 @@ import { fileURLToPath } from 'node:url';
 import { canPublish, LOCAL_LICENSES } from './model-assets/licenses.mjs';
 
 export const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-// Decimal MB is deliberately conservative for jsDelivr's documented limits.
-export const MAX_FILE = 20_000_000;
-export const MAX_PACKAGE = 150_000_000;
+// GitHub's limit for an ordinary Git file; these assets do not use Git LFS.
+export const MAX_FILE = 100 * 1024 ** 2;
 
 export function checkSizes(files) {
   let total = 0;
   for (const file of files) {
-    if (file.size > MAX_FILE) throw new Error(`${file.path}: ${(file.size / 1e6).toFixed(2)} MB exceeds jsDelivr's 20 MB file limit`);
+    if (file.size > MAX_FILE) throw new Error(`${file.path}: ${(file.size / 1024 ** 2).toFixed(2)} MiB exceeds GitHub's 100 MiB file limit`);
     total += file.size;
   }
-  if (total > MAX_PACKAGE) throw new Error(`Repository snapshot is ${(total / 1e6).toFixed(2)} MB, exceeding jsDelivr's 150 MB limit`);
   return total;
 }
 

@@ -2,7 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { zipSync, strToU8 } from 'fflate';
 import { archiveToGLB, attribution, modelUid, unpackArchive } from '../scripts/model-assets/gltf.mjs';
-import { checkSizes, MAX_FILE, MAX_PACKAGE } from '../scripts/check-assets.mjs';
+import { checkSizes, MAX_FILE } from '../scripts/check-assets.mjs';
 import { buildCatalog } from '../scripts/build-catalog.mjs';
 
 const credit = attribution({ uid: '9ccda2fddba846e6ba97eb774b8a09c6', name: 'Coffee Maker', isDownloadable: true,
@@ -31,18 +31,18 @@ test('rejects unsupported licenses and unsafe archive paths', () => {
   assert.throws(() => unpackArchive(zipSync({ '../secret': strToU8('bad') })), /Unsafe/);
   assert.equal(modelUid('https://sketchfab.com/3d-models/coffee-9ccda2fddba846e6ba97eb774b8a09c6'), '9ccda2fddba846e6ba97eb774b8a09c6');
 });
-test('enforces both per-file and snapshot limits without reading large fixtures', () => {
+test('enforces the GitHub file limit without the CDN snapshot restriction', () => {
   assert.equal(checkSizes([{ path: 'model.glb', size: MAX_FILE }]), MAX_FILE);
-  assert.throws(() => checkSizes([{ path: 'model.glb', size: MAX_FILE + 1 }]), /20 MB/);
-  assert.throws(() => checkSizes(Array.from({ length: 8 }, (_, i) => ({ path: `${i}.glb`, size: MAX_PACKAGE / 8 + 1 }))), /150 MB/);
+  assert.throws(() => checkSizes([{ path: 'model.glb', size: MAX_FILE + 1 }]), /100 MiB/);
+  assert.equal(checkSizes([{ path: 'a.glb', size: MAX_FILE }, { path: 'b.glb', size: MAX_FILE }]), 2 * MAX_FILE);
 });
 test('builds mixed delivery URLs with all screenshots on the GitHub branch', () => {
   const entries = [{ id: 'coffee', delivery: 'github', bytes: 100 }, { id: 'bottle', delivery: 'r2', r2Url: 'https://assets.example/bottle.glb', bytes: 30000000 }];
   const output = buildCatalog(entries);
-  assert.equal(output[0].url, 'https://cdn.jsdelivr.net/gh/pissang/mutracer-assets@main/assets/coffee/model.glb');
+  assert.equal(output[0].url, 'https://raw.githubusercontent.com/pissang/mutracer-assets/main/assets/coffee/model.glb');
   assert.equal(output[1].url, entries[1].r2Url);
-  assert.match(output[1].thumbnail, /^https:\/\/cdn.jsdelivr.net\/gh\/pissang\/mutracer-assets@main\//);
-  assert.match(buildCatalog(entries, 'v0.1.0')[0].url, /@v0\.1\.0\/assets\/coffee\/model\.glb$/);
+  assert.match(output[1].thumbnail, /^https:\/\/raw.githubusercontent.com\/pissang\/mutracer-assets\/main\//);
+  assert.match(buildCatalog(entries, 'v0.1.0')[0].url, /\/v0\.1\.0\/assets\/coffee\/model\.glb$/);
   assert.throws(() => buildCatalog(entries, '../main'), /Git ref/);
   assert.throws(() => buildCatalog([{ id: 'pending', delivery: 'r2' }]), /upload/);
 });
@@ -62,7 +62,7 @@ test('publishes procedural and external models without inventing GitHub GLB path
   assert.equal(output[1].url,source);
   assert.equal(output[1].sizeMB,1);
   assert.deepEqual(output[1].camera,camera);
-  assert.match(output[0].thumbnail,/@v0\.1\.0\/assets\/spheres\/thumbnail\.webp$/);
-  assert.match(output[1].attributionUrl,/@v0\.1\.0\/assets\/toycar\/attribution\.json$/);
+  assert.match(output[0].thumbnail,/\/v0\.1\.0\/assets\/spheres\/thumbnail\.webp$/);
+  assert.match(output[1].attributionUrl,/\/v0\.1\.0\/assets\/toycar\/attribution\.json$/);
   assert.throws(()=>buildCatalog([{...common,id:'bad',delivery:'external',url:undefined}],'v0.1.0'),/external model URL/);
 });

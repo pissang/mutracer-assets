@@ -794,7 +794,7 @@
     "sourceUrl": "https://sketchfab.com/3d-models/gelatinous-cube-e08385238f4d4b59b012233a9fbdca21",
     "sizeMB": 20.13,
     "bytes": 20132044,
-    "delivery": "r2",
+    "delivery": "github",
     "sha256": "66cf10385995c18900cb90723c19e178cfab12de165a928459f996af6eff5c1a",
     "textureSize": 1024,
     "compression": {
@@ -968,10 +968,7 @@
       ],
       "fov": 35,
       "space": "grounded"
-    },
-    "r2Bucket": "mutracer-assets",
-    "r2Key": "models/gelatinous-cube/66cf10385995c18900cb9072/model.glb",
-    "r2Url": "https://mutracer-assets.meimu-studio.com/models/gelatinous-cube/66cf10385995c18900cb9072/model.glb"
+    }
   },
   {
     "id": "blender-cover-remix",
@@ -984,7 +981,7 @@
     "sourceUrl": "https://sketchfab.com/3d-models/blender-cover-remix-a38f11890ff141c88fcdac6b637fdaf8",
     "sizeMB": 28.07,
     "bytes": 28069680,
-    "delivery": "r2",
+    "delivery": "github",
     "sha256": "4c918299ecc8ef28fee4e5ac46d6c64f836bd59fba725102862866a301a10597",
     "textureSize": 1024,
     "compression": {
@@ -1592,10 +1589,7 @@
       ],
       "fov": 35,
       "space": "grounded"
-    },
-    "r2Bucket": "mutracer-assets",
-    "r2Key": "models/blender-cover-remix/4c918299ecc8ef28fee4e5ac/model.glb",
-    "r2Url": "https://mutracer-assets.meimu-studio.com/models/blender-cover-remix/4c918299ecc8ef28fee4e5ac/model.glb"
+    }
   },
   {
     "id": "dragon",

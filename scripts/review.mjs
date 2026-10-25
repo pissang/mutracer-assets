@@ -52,7 +52,7 @@ const server = http.createServer(async (req, res) => {
           if (!entry) throw new Error('Model must be imported before changing delivery');
           if (entry.delivery === 'external') throw new Error('External/procedural models only host previews here');
           if (entry.reviewOnly) throw new Error('Review-only models cannot be published');
-          if (action === 'github' && entry.bytes > MAX_FILE) throw new Error('GLB exceeds jsDelivr 20 MB limit');
+          if (action === 'github' && entry.bytes > MAX_FILE) throw new Error('GLB exceeds GitHub 100 MiB limit');
           if (action !== entry.delivery) {
             const github = path.join(dataRoot, 'assets', id, 'model.glb');
             const r2Dir = path.join(dataRoot, 'work/r2', id);

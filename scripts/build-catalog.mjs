@@ -9,7 +9,7 @@ import { withCatalogLock, saveJSON } from './model-assets/catalog-lock.mjs';
 export function buildCatalog(entries, ref = 'main', repository = 'pissang/mutracer-assets') {
   if (!/^[\w][\w./-]*$/.test(ref)) throw new Error('Invalid Git ref');
   if (!/^[\w.-]+\/[\w.-]+$/.test(repository)) throw new Error('Invalid GitHub repository');
-  const base = `https://cdn.jsdelivr.net/gh/${repository}@${ref}`;
+  const base = `https://raw.githubusercontent.com/${repository}/${ref}`;
   return entries.filter(entry=>!entry.reviewOnly).map((entry) => {
     if (!/^[a-z0-9-]+$/.test(entry.id)) throw new Error('Invalid model ID');
     if (entry.license && !canPublish(entry)) throw new Error(`Not eligible for public presets: ${entry.id}`);

@@ -35,7 +35,7 @@ Default selection: models.json. Uses cached GLBs/previews unless --refresh.
 --browser-path FILE Use this Chrome executable
 --token-stdin       Read a personal API token from a hidden stdin input
 Credentials: SKETCHFAB_ACCESS_TOKEN (OAuth) or SKETCHFAB_API_TOKEN (personal).
-GLBs larger than 20 MB are staged in ignored work/r2; previews always go to assets/.`);
+GLBs larger than 100 MiB are staged in ignored work/r2; previews always go to assets/.`);
   await closeDownloads();
 } else {
   let renderer;

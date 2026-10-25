@@ -5,13 +5,13 @@ import { spawn } from 'node:child_process';
 import { once } from 'node:events';
 import os from 'node:os';
 import path from 'node:path';
-import { root } from '../scripts/check-assets.mjs';
+import { root, MAX_FILE } from '../scripts/check-assets.mjs';
 
 test('review switches delivery, rejects oversized GitHub files, and removes models with recovery files', async () => {
   const temp = await mkdtemp(path.join(os.tmpdir(), 'mutracer-review-'));
   const save = (name, value) => writeFile(path.join(temp, name), JSON.stringify(value));
   await save('models.json', [{ id: 'coffee', uid: 'uid' }, { id: 'big', uid: 'biguid' }, {id:'spheres',source:'viewer',url:null}]);
-  await save('catalog.json', [{ id: 'coffee', delivery: 'github', bytes: 4 }, { id: 'big', delivery: 'r2', bytes: 21000000 }, {id:'spheres',delivery:'external',url:null,bytes:0}]);
+  await save('catalog.json', [{ id: 'coffee', delivery: 'github', bytes: 4 }, { id: 'big', delivery: 'r2', bytes: MAX_FILE + 1 }, {id:'spheres',delivery:'external',url:null,bytes:0}]);
   await save('presets.json', ['old catalog']);
   await mkdir(path.join(temp, 'assets/coffee'), { recursive: true });
   await writeFile(path.join(temp, 'assets/coffee/model.glb'), 'glb!');

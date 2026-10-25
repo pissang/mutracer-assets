@@ -90,91 +90,43 @@ For an untracked credential file, copy `.env.example` to `.env` and use:
 node --env-file=.env scripts/import-models.mjs --headless
 ```
 
-## Mixed GitHub / R2 hosting
+## Hosting and viewer URLs
 
-All previews and attribution files live under `assets/<id>/` in GitHub.
-GLBs up to 20 MB are stored alongside them. Larger GLBs are kept in ignored
-`work/r2/<id>/model.glb` and marked `delivery: "r2"`. No large GLB is staged
-into Git history. Files are ordinary Git objects, not Git LFS pointers.
+All public previews, attribution files and hosted GLBs are served directly from
+GitHub raw under `assets/<id>/`. Files are ordinary Git objects, not Git LFS
+pointers. The current collection needs neither jsDelivr nor R2.
 
-The size checks use conservative decimal limits: 20,000,000 bytes per file
-and 150,000,000 bytes for the current repository snapshot. These correspond to
-jsDelivr's [documented default restrictions](https://github.com/jsdelivr/jsdelivr#restrictions).
-Even a GLB below 20 MB can be switched to R2 to keep the whole snapshot below
-the total limit. Screenshots and attribution always remain on GitHub.
-
-For retained R2 models, configure an existing bucket, public custom domain and
-CORS (`GET`, `HEAD` allowed from the viewer origin). Authenticate with
-`npx wrangler login` or Cloudflare environment credentials, then run:
+GitHub permits ordinary files up to 100 MiB; `npm run check` enforces that limit.
+Models larger than this need another host. Optional R2 delivery remains available
+through the review UI and this upload command; upload those files before
+generating their catalog.
 
 ```bash
 npm run upload:r2 -- --bucket YOUR_BUCKET --public-base https://YOUR_ASSET_DOMAIN
-# Upload first if the public domain is not ready yet:
-# npm run upload:r2 -- --bucket YOUR_BUCKET
-# If credentials/settings are in .env:
-# node --env-file=.env scripts/upload-r2.mjs
-# Optional: --model perfume-bottle; --force to replace a recorded target URL
 ```
 
-This checkout uses the `mutracer-assets` bucket. `r2-cors.json` contains the
-read-only CORS policy allowing only `https://mutracer.meimu-studio.com`.
-Localhost and other website origins are not allowed. This is browser CORS
-enforcement, not authentication or a restriction on direct HTTP downloads:
+The bucket must allow browser GET/HEAD requests from the viewer's origin.
 
-```bash
-npx wrangler r2 bucket cors set mutracer-assets --file r2-cors.json --force
-```
-
-Only R2 GLBs are uploaded. They use content hashes in object paths, Standard
-storage and immutable cache headers. The command saves the resulting URLs in
-`catalog.json`; it never commits or pushes to GitHub. Without `--public-base`,
-it records bucket/object paths only. Re-run with `--public-base` once the domain
-is ready; unchanged objects in the same bucket are not uploaded again. The
-`MuTracer immutable GLB assets` Cache Rule makes the asset domain's `/models/*`
-eligible for CDN cache and respects origin cache-control headers. Wrangler uploads are limited to 300 MiB;
-larger files require an S3 multipart uploader. ZIP downloads/expanded archives
-are limited to 512 MiB.
-
-## Generate URLs and publish manually
-
-After reviewing and uploading any retained R2 models:
+After reviewing the retained models:
 
 ```bash
 npm run check
 npm run catalog
 npm test
-git add assets models.json catalog.json presets.json
-git commit -m "Add reviewed viewer models"
-git push origin main
 ```
 
-For the first commit, also add the scripts, package files, README, LICENSE and
-dotfiles. All GitHub commits and pushes are manual. No script invokes
-`git commit` or `git push`. `npm run catalog` only writes `presets.json`.
-The generated URLs follow the `main` branch, so a push publishes without a tag:
+`presets.json` contains viewer-compatible URLs following the `main` branch:
 
 ```text
-https://cdn.jsdelivr.net/gh/pissang/mutracer-assets@main/assets/wooden-chess/model.glb
-https://cdn.jsdelivr.net/gh/pissang/mutracer-assets@main/assets/wooden-chess/thumbnail.webp
+https://raw.githubusercontent.com/pissang/mutracer-assets/main/assets/wooden-chess/model.glb
+https://raw.githubusercontent.com/pissang/mutracer-assets/main/assets/wooden-chess/thumbnail.webp
 ```
 
-jsDelivr caches branch URLs for up to 12 hours. To publish a replaced file
-sooner, purge it by swapping `cdn.jsdelivr.net` for `purge.jsdelivr.net`:
-
-```bash
-curl https://purge.jsdelivr.net/gh/pissang/mutracer-assets@main/assets/wooden-chess/thumbnail.webp
-```
-
-New models need no purge. Keep a model's files at the same path once published,
-or ship the matching viewer change only after the purge. `npm run catalog -- --ref v0.1.0`
-still pins a tag or full commit SHA when needed.
-
-`presets.json` is a viewer-compatible model list. R2 models have an R2 `url`
-and a jsDelivr `thumbnail`. Add reviewed entries to the MuTracer viewer while
-keeping the same IDs/order/cameras, author/source attribution and a visible CC license link. The `attributionUrl`
-contains original descriptions and additional creator credits. Editing selection
-or delivery in the review UI invalidates `presets.json`, so regenerate it before
-your next commit.
+Use `npm run catalog -- --ref v0.1.0` to pin a tag or commit when needed. Keep
+model IDs, order, cameras and license links when importing the catalog into the
+MuTracer viewer. `attributionUrl` includes original descriptions and extra credits.
+Editing selection or delivery in the review UI invalidates `presets.json`;
+regenerate it before use.
 
 ## Licenses
 
