@@ -1,0 +1,9 @@
+{
+  "title": "Fluted Crystal",
+  "author": "Yi Shen",
+  "sourceUrl": "https://github.com/pissang/mutracer-assets",
+  "license": "CC0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "description": "Original crystal still life by Yi Shen.",
+  "changes": "Repacked as a single GLB; textures limited to 1024px; geometry compressed/quantized with gltf-transform Meshopt without simplification; PNG textures compressed with lossless WebP; default camera embedded; preview rendered with MuTracer and denoised with OIDN standard. Original materials, cameras and lighting retained without intensity changes."
+}

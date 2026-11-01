@@ -66,12 +66,12 @@ export async function createAssetRenderer(options) {
       window.assetEngine = new ViewerEngine(document.querySelector('canvas'));
     }, `/@fs${path.join(repo, 'node_modules/three/build/three.module.js')}`);
     return {
-      async render(file, output, camera) {
+      async render(file, output, camera, settings = {}) {
         return withTimeout(async () => {
           const external = typeof file === 'object' ? file : null;
           const key = external ? JSON.stringify(external) : file;
           modelFile = external ? null : file;
-          const cameraResult = await page.evaluate(async ({ width, height, camera, reload, external }) => {
+          const cameraResult = await page.evaluate(async ({ width, height, camera, reload, external, settings }) => {
             window.assetStore.setState(s => ({settings: {...s.settings, background: external?.background || 'color'}}));
             if (reload) {
               let loaded;
@@ -83,8 +83,23 @@ export async function createAssetRenderer(options) {
               }
               if (loaded === false) throw new Error('GLB loading failed; check required glTF extensions and textures');
             }
-            const loadedCamera=reload?{position:window.assetEngine.camera.position.toArray(),target:window.assetEngine.controls.target.toArray(),fov:window.assetEngine.perspectiveCamera.fov,space:'grounded'}:null;
-            window.assetEngine.fit(width / height);
+            window.assetStore.setState(s => ({settings: {...s.settings, ...settings}}));
+            const captureView = () => {
+              const engine = window.assetEngine, Vector3 = window.assetVector3;
+              const active = engine.activeCamera();
+              active.updateWorldMatrix(true, false);
+              const position = active.getWorldPosition(new Vector3());
+              const authored = window.assetStore.getState().settings.cameraIndex >= 0;
+              const target = authored ? position.clone().addScaledVector(active.getWorldDirection(new Vector3()),
+                Math.max(position.distanceTo(engine.modelBounds().getCenter(new Vector3())), 1e-3)) : engine.controls.target;
+              return {position:position.toArray(),target:target.toArray(),space:'grounded',
+                ...(active.isOrthographicCamera ? {projection:'orthographic',halfHeight:(active.top-active.bottom)/2,zoom:active.zoom}
+                  : {fov:active.fov})};
+            };
+            const loadedCamera=reload?captureView():null;
+            // Local scenes can contain perspective or orthographic cameras. Keep
+            // the authored view unless camera scouting explicitly replaces it.
+            if (camera || window.assetStore.getState().settings.cameraIndex < 0) window.assetEngine.fit(width / height);
             if (camera?.view) {
               const engine=window.assetEngine, Vector3=window.assetVector3;
               const box=engine.modelBounds(), center=box.getCenter(new Vector3());
@@ -109,8 +124,8 @@ export async function createAssetRenderer(options) {
               }
               window.assetEngine.lookAt(new window.assetVector3(...camera.position), new window.assetVector3(...camera.target));
             }
-            return {camera:{position:window.assetEngine.camera.position.toArray(),target:window.assetEngine.controls.target.toArray(),fov:window.assetEngine.perspectiveCamera.fov,space:'grounded'},loadedCamera};
-          }, { width: options.width, height: options.height, camera, external, reload:loadedFile !== key });
+            return {camera:captureView(),loadedCamera};
+          }, { width: options.width, height: options.height, camera, external, settings, reload:loadedFile !== key });
           loadedFile=key;
           await page.waitForFunction(() => {
             const state = window.assetStore.getState();

@@ -1965,5 +1965,83 @@
       "fov": 35,
       "space": "grounded"
     }
+  },
+  {
+    "id": "crystal-lens",
+    "name": "Crystal Lens",
+    "tag": "Crystal · dispersion",
+    "license": "CC0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "credit": "Yi Shen",
+    "sourceUrl": "https://github.com/pissang/mutracer-assets",
+    "sizeMB": 1.36,
+    "bytes": 1357232,
+    "delivery": "github",
+    "sha256": "34fae18bfb1943cb89bb518919c6341d375d25ee6e806a204b98790d969bc03d",
+    "textureSize": 1024,
+    "compression": {
+      "tool": "gltf-transform",
+      "version": "4.5.1",
+      "inputBytes": 5860068,
+      "outputBytes": 1357232,
+      "compressed": true,
+      "geometry": "Meshopt (16-bit positions, 12-bit normals, 14-bit UVs)",
+      "textures": "lossless WebP for PNG; JPEG unchanged",
+      "images": []
+    },
+    "materialNotes": "Transmissive crystal over the original light-colored receiving surface.",
+    "camera": {
+      "position": [
+        -2.9393515913038843,
+        4.437806340809544,
+        4.606042787985661
+      ],
+      "target": [
+        -0.9422087762342671,
+        0.3016024888623008,
+        1.1468899623139492
+      ],
+      "fov": 22.457785494219603,
+      "space": "grounded"
+    },
+    "renderSettings": {
+      "groundShadow": false,
+      "caustics": true,
+      "causticLightTracing": true,
+      "causticPhotonMapping": true,
+      "bounces": 12
+    }
+  },
+  {
+    "id": "fluted-crystal",
+    "name": "Fluted Crystal",
+    "tag": "Glass · volume absorption",
+    "license": "CC0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "credit": "Yi Shen",
+    "sourceUrl": "https://github.com/pissang/mutracer-assets",
+    "sizeMB": 3.07,
+    "bytes": 3073560,
+    "delivery": "github",
+    "sha256": "bb80281497f0ada2a2c579a0905d73b6444aaa695261528c2555063a75a05d98",
+    "textureSize": 1024,
+    "compression": {
+      "tool": "gltf-transform",
+      "version": "4.5.1",
+      "inputBytes": 17522184,
+      "outputBytes": 3073560,
+      "compressed": true,
+      "geometry": "Meshopt (16-bit positions, 12-bit normals, 14-bit UVs)",
+      "textures": "lossless WebP for PNG; JPEG unchanged",
+      "images": []
+    },
+    "materialNotes": "Transmissive crystal over the original light-colored receiving surface.",
+    "renderSettings": {
+      "groundShadow": false,
+      "caustics": true,
+      "causticLightTracing": true,
+      "causticPhotonMapping": true,
+      "bounces": 12
+    }
   }
 ]

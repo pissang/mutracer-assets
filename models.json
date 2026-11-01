@@ -368,5 +368,61 @@
     "cameraReason": "参考近正面三分之四角度并提高俯视角，展现外壳开口和内部结构；近距离构图使模型保持居中。",
     "compositionAdjusted": true,
     "changes": "Merged the neutral and OpenPBR object GLBs distributed with OpenPBR-viewer and assigned a clear transmissive glass material to the outer shell."
+  },
+  {
+    "id": "crystal-lens",
+    "source": "archive",
+    "name": "Crystal Lens",
+    "tag": "Crystal · dispersion",
+    "sourceUrl": "https://github.com/pissang/mutracer-assets",
+    "license": "CC0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "credit": "Yi Shen",
+    "cameraReason": "Match the supplied reference: close elevated three-quarter view, tumbler toward the upper left and caustic shadow extending to the lower right.",
+    "materialNotes": "Transmissive crystal over the original light-colored receiving surface.",
+    "changes": "Default camera reframed to match the supplied reference. Original materials and lighting retained without intensity changes.",
+    "renderSettings": {
+      "groundShadow": false,
+      "caustics": true,
+      "causticLightTracing": true,
+      "causticPhotonMapping": true,
+      "bounces": 12
+    },
+    "background": "environment",
+    "camera": {
+      "position": [
+        -2.9393515913038843,
+        4.437806340809544,
+        4.606042787985661
+      ],
+      "target": [
+        -0.9422087762342671,
+        0.3016024888623008,
+        1.1468899623139492
+      ],
+      "fov": 22.457785494219603,
+      "space": "grounded"
+    }
+  },
+  {
+    "id": "fluted-crystal",
+    "source": "archive",
+    "name": "Fluted Crystal",
+    "tag": "Glass · volume absorption",
+    "sourceUrl": "https://github.com/pissang/mutracer-assets",
+    "license": "CC0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "credit": "Yi Shen",
+    "cameraReason": "Retain the authored still-life camera, including the orthographic projection in Fluted Crystal.",
+    "materialNotes": "Transmissive crystal over the original light-colored receiving surface.",
+    "changes": "Original materials, cameras and lighting retained without intensity changes.",
+    "renderSettings": {
+      "groundShadow": false,
+      "caustics": true,
+      "causticLightTracing": true,
+      "causticPhotonMapping": true,
+      "bounces": 12
+    },
+    "background": "environment"
   }
 ]

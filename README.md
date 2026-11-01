@@ -42,6 +42,13 @@ Regenerate them with the same importer, without Sketchfab credentials:
 npm run import -- --headless --model spheres --model toycar --model sheenchair
 ```
 
+Crystal Lens and Fluted Crystal are original CC0 scenes by Yi Shen. They use
+their original light-colored receiving surfaces and lighting. Crystal Lens
+opens in a close three-quarter view; Fluted Crystal retains its orthographic
+camera. Their Collection presets enable light tracing and photon mapping with
+12 bounces. Restoring a saved user view
+keeps its render settings; Reset all returns to the example defaults.
+
 Import one model with `--model ID_OR_URL_OR_UID`. Downloads and rendering are serial.
 Completed models are checkpointed; re-running reuses cached GLBs and matching
 previews. `--refresh` downloads and renders again. Defaults are 720 × 405 with WebP quality 80%,

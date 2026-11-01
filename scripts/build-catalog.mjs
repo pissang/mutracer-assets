@@ -19,7 +19,7 @@ export function buildCatalog(entries, ref = 'main', repository = 'pissang/mutrac
     return { id: entry.id, name: entry.name, tag: entry.tag, url: entry.delivery === 'external' ? entry.url : entry.delivery === 'r2' ? entry.r2Url : `${base}/assets/${entry.id}/model.glb`,
       thumbnail: `${base}/assets/${entry.id}/thumbnail.webp`, license: entry.license, credit: entry.credit,
       sourceUrl: entry.sourceUrl, licenseUrl: entry.licenseUrl, attributionUrl: `${base}/assets/${entry.id}/attribution.json`,
-      ...(entry.bytes ? {sizeMB: Number((entry.bytes / 1024 ** 2).toFixed(2))} : {}), ...(entry.nonCommercial===true ? {nonCommercial:true} : {}), ...(entry.camera ? {camera:entry.camera} : {}) };
+      ...(entry.bytes ? {sizeMB: Number((entry.bytes / 1024 ** 2).toFixed(2))} : {}), ...(entry.nonCommercial===true ? {nonCommercial:true} : {}), ...(entry.camera ? {camera:entry.camera} : {}), ...(entry.renderSettings ? {renderSettings:entry.renderSettings} : {}) };
   });
 }
 

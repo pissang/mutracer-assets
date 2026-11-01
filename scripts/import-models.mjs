@@ -104,13 +104,14 @@ GLBs larger than 100 MiB are staged in ignored work/r2; previews always go to as
         await saveJSON(path.join(dir,'texture-stats.json'),processed.stats);
         const hash=createHash('sha256').update(compressed.glb).digest('hex');
         const image = path.join(dir, 'thumbnail.webp');
-        const signature = JSON.stringify({ ...options, camera: entry.camera, sha256:hash });
+        const sceneSettings = {...entry.renderSettings, ...(entry.background ? {background:entry.background} : {})};
+        const signature = JSON.stringify({ ...options, camera: entry.camera, settings: sceneSettings, sha256:hash });
         const renderSettings = path.join(dir, 'render-settings.json');
         if (existing && await readFile(renderSettings, 'utf8').then((text) => text === signature, () => false) && await stat(image).then(() => true, () => false)) {
           console.log(`Reusing preview for ${entry.id}`);
         } else {
           console.log(`Rendering ${entry.id}`);
-          const backend = await renderer.render(glbFile, image, entry.camera);
+          const backend = await renderer.render(glbFile, image, entry.camera, sceneSettings);
           if (entry.camera && backend.loadedCamera) {
             const actual=backend.loadedCamera;
             const equal=(a,b)=>Math.abs(a-b)<=1e-5*Math.max(1,Math.abs(b));
@@ -141,7 +142,7 @@ GLBs larger than 100 MiB are staged in ignored work/r2; previews always go to as
         const item = { id: entry.id, uid: entry.uid, name: entry.name || credit.title, tag: entry.tag || 'Sketchfab',
           license: credit.license, licenseUrl: credit.licenseUrl, credit: credit.author, sourceUrl: credit.sourceUrl,
           sizeMB: Number((size / 1e6).toFixed(2)), bytes: size, delivery,
-          sha256: hash, textureSize:options.textureSize, compression:compressed.stats, ...(entry.materialNotes ? {materialNotes:entry.materialNotes} : {}), ...(entry.reviewOnly ? {reviewOnly:true} : {}), ...(entry.nonCommercial===true ? {nonCommercial:true} : {}), ...(entry.camera ? {camera:entry.camera} : {}) };
+          sha256: hash, textureSize:options.textureSize, compression:compressed.stats, ...(entry.materialNotes ? {materialNotes:entry.materialNotes} : {}), ...(entry.reviewOnly ? {reviewOnly:true} : {}), ...(entry.nonCommercial===true ? {nonCommercial:true} : {}), ...(entry.camera ? {camera:entry.camera} : {}), ...(entry.renderSettings ? {renderSettings:entry.renderSettings} : {}) };
         const index = catalog.findIndex((old) => old.id === item.id);
         if (index >= 0 && catalog[index].sha256 === item.sha256 && delivery === 'r2') {
           for (const field of ['r2Url', 'r2Bucket', 'r2Key']) if (catalog[index][field]) item[field] = catalog[index][field];

@@ -47,6 +47,12 @@ test('builds mixed delivery URLs with all screenshots on the GitHub branch', () 
   assert.throws(() => buildCatalog([{ id: 'pending', delivery: 'r2' }]), /upload/);
 });
 
+test('keeps a scene’s render defaults in the viewer catalog', () => {
+  const renderSettings = {groundShadow:false,caustics:true,causticLightTracing:true,causticPhotonMapping:true,bounces:12};
+  const [preset] = buildCatalog([{id:'crystal-lens',delivery:'github',license:'CC0',renderSettings}]);
+  assert.deepEqual(preset.renderSettings,renderSettings);
+});
+
 test('publishes procedural and external models without inventing GitHub GLB paths', () => {
   const camera={position:[1,2,3],target:[0,0,0],fov:35,space:'grounded'};
   const common={license:'CC0',credit:'Author',sourceUrl:'https://example.com/source',camera};
