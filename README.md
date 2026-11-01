@@ -49,6 +49,12 @@ camera. Their Collection presets enable light tracing and photon mapping with
 12 bounces. Restoring a saved user view
 keeps its render settings; Reset all returns to the example defaults.
 
+Halloween Night is an original CC0 scene by Yi Shen, modeled by MuTracer's
+`scripts/create-halloween-scene.py`. Run `node scripts/prepare-halloween.mjs`
+before importing it: the viewer reads only the GLB, so this bakes the example's
+sky, unlit materials, OpenPBR metadata and light radii into the file and merges
+the foliage per material. Its preset also stores ACES tone mapping and bloom.
+
 Import one model with `--model ID_OR_URL_OR_UID`. Downloads and rendering are serial.
 Completed models are checkpointed; re-running reuses cached GLBs and matching
 previews. `--refresh` downloads and renders again. Defaults are 720 × 405 with WebP quality 80%,

@@ -2043,5 +2043,79 @@
       "causticPhotonMapping": true,
       "bounces": 12
     }
+  },
+  {
+    "id": "halloween",
+    "name": "Halloween Night",
+    "tag": "Candle lights · reflections",
+    "license": "CC0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "credit": "Yi Shen",
+    "sourceUrl": "https://github.com/pissang/mutracer-assets",
+    "sizeMB": 9.46,
+    "bytes": 9460924,
+    "delivery": "github",
+    "sha256": "49a2120812f545a94ce38da0915cc36e4bba06557045837809b33b6b0a2c23d3",
+    "textureSize": 1024,
+    "compression": {
+      "tool": "gltf-transform",
+      "version": "4.5.1",
+      "inputBytes": 41137784,
+      "outputBytes": 9460924,
+      "compressed": true,
+      "geometry": "Meshopt (16-bit positions, 12-bit normals, 14-bit UVs)",
+      "textures": "lossless WebP for PNG; JPEG unchanged",
+      "images": [
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/jpeg"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/jpeg"
+        },
+        {
+          "width": 512,
+          "height": 256,
+          "mimeType": "image/jpeg"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "mimeType": "image/webp"
+        },
+        {
+          "width": 1024,
+          "height": 512,
+          "mimeType": "image/jpeg"
+        }
+      ]
+    },
+    "materialNotes": "Carved pumpkins, puddles, crystal, polished granite and a sky dome in the model.",
+    "camera": {
+      "position": [
+        0.3,
+        21.3,
+        11.6
+      ],
+      "target": [
+        0.2,
+        21.75,
+        0
+      ],
+      "fov": 46,
+      "space": "grounded"
+    },
+    "renderSettings": {
+      "groundShadow": false,
+      "bounces": 14,
+      "toneMapping": "aces",
+      "exposure": 1.1,
+      "bloomIntensity": 0.14,
+      "bloomThreshold": 1.3,
+      "bloomRadius": 0.6
+    }
   }
 ]
