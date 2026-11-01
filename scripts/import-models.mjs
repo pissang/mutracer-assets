@@ -133,6 +133,7 @@ GLBs larger than 100 MiB are staged in ignored work/r2; previews always go to as
         await cp(image, path.join(assetDir, 'thumbnail.webp'));
         await cp(path.join(dir, 'attribution.json'), path.join(assetDir, 'attribution.json'));
         if (delivery === 'github' || delivery === 'local') await cp(glbFile, path.join(assetDir, 'model.glb'));
+        if (entry.environment) await cp(path.join(dir, entry.environment), path.join(assetDir, entry.environment));
         else {
           const target = path.join(root, 'work/r2', entry.id);
           await mkdir(target, { recursive: true });

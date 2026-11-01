@@ -52,8 +52,9 @@ keeps its render settings; Reset all returns to the example defaults.
 Halloween Night is an original CC0 scene by Yi Shen, modeled by MuTracer's
 `scripts/create-halloween-scene.py`. Run `node scripts/prepare-halloween.mjs`
 before importing it: the viewer reads only the GLB, so this bakes the example's
-sky, unlit materials, OpenPBR metadata and light radii into the file and merges
-the foliage per material. Its preset also stores ACES tone mapping and bloom.
+unlit materials, OpenPBR metadata and light radii into the file, merges the
+foliage per material and writes the night sky to a `sky.hdr` beside it. Its
+preset also stores ACES tone mapping and bloom.
 
 Import one model with `--model ID_OR_URL_OR_UID`. Downloads and rendering are serial.
 Completed models are checkpointed; re-running reuses cached GLBs and matching

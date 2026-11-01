@@ -418,17 +418,17 @@
     "sourceUrl": "https://github.com/pissang/mutracer-assets",
     "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
     "attributionUrl": "https://raw.githubusercontent.com/pissang/mutracer-assets/main/assets/halloween/attribution.json",
-    "sizeMB": 9.02,
+    "sizeMB": 8.95,
     "camera": {
       "position": [
-        0.3,
+        -11.7745,
         21.3,
-        11.6
+        55.7167
       ],
       "target": [
-        0.2,
+        -11.8745,
         21.75,
-        0
+        44.1167
       ],
       "fov": 46,
       "space": "grounded"

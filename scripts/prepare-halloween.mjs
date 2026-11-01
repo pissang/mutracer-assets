@@ -1,8 +1,7 @@
 // Bakes MuTracer's examples/assets/halloween.glb into a self-contained Collection source.
 // The example configures its sky, materials and lights in code. The viewer only reads the
-// GLB, so this writes them into the file: an unlit sky dome, unlit moon, stars and mist,
-// OpenPBR metadata, and merged foliage. The dome would block directional shadow rays, so
-// directional lights become distant sphere lights inside it.
+// GLB, so this writes them into the file: unlit moon, stars and mist, OpenPBR metadata and
+// merged foliage, plus a sibling sky.hdr that the GLB names as its environment.
 //
 // Usage: node scripts/prepare-halloween.mjs [source.glb]
 // Then:  npm run import -- --headless --model halloween
@@ -10,15 +9,13 @@ import {mkdir, writeFile} from 'node:fs/promises';
 import path from 'node:path';
 import sharp from 'sharp';
 import {NodeIO} from '@gltf-transform/core';
-import {KHRONOS_EXTENSIONS, KHRMaterialsUnlit, KHRLightsPunctual} from '@gltf-transform/extensions';
+import {KHRONOS_EXTENSIONS, KHRMaterialsUnlit} from '@gltf-transform/extensions';
 import {prune} from '@gltf-transform/functions';
 import {root} from './check-assets.mjs';
 
 const source = process.argv[2] ?? path.join(root, '../mutracer/examples/assets/halloween.glb');
 const directory = path.join(root, 'work/import/halloween');
 const FLAME_RADIUS = 0.02;
-const DISTANT_RADIUS = 2;
-const DOME_RADIUS = 400;
 // No crystal dispersion here: the viewer traces three wavelengths per path, about ten times slower.
 const OPENPBR = {
   bubble: {thinFilmWeight: 1, thinFilmThickness: 0.42, thinFilmIor: 1.33, geometryThinWalled: true},
@@ -51,52 +48,34 @@ function clouds(x, y, period) {
   return total;
 }
 
-const srgb = c => Math.round(255 * Math.min(1, c <= 0.0031308 ? 12.92 * c : 1.055 * c ** (1 / 2.4) - 0.055));
-
-/** Equirectangular violet dusk with purple clouds, rimmed gold around the moon. */
-async function nightSky(moon, width = 1024, height = 512) {
-  const pixels = Buffer.alloc(width * height * 3);
+/** Violet dusk with purple clouds, rimmed gold around the moon, as a Radiance RGBE file. */
+function nightSky(moon, width = 1024, height = 512) {
+  const header = Buffer.from(`#?RADIANCE\nFORMAT=32-bit_rle_rgbe\n\n-Y ${height} +X ${width}\n`);
+  const pixels = Buffer.alloc(width * height * 4);
   for (let row = 0; row < height; row++) {
-    const theta = (row + 0.5) / height * Math.PI;
-    const y = Math.cos(theta), up = Math.max(y, 0);
+    const sourceTheta = (row + 0.5) / height * Math.PI;
     for (let col = 0; col < width; col++) {
-      const phi = (col + 0.5) / width * 2 * Math.PI;
-      const x = -Math.sin(theta) * Math.cos(phi), z = -Math.sin(theta) * Math.sin(phi);
+      // The viewer reads metadata environments in PBRT's Z-up lat-long.
+      const sourcePhi = (col + 0.5) / width * 2 * Math.PI;
+      const x = Math.sin(sourceTheta) * Math.cos(sourcePhi), y = Math.sin(sourceTheta) * Math.sin(sourcePhi), z = Math.cos(sourceTheta);
+      const up = Math.max(y, 0);
+      const phi = (Math.atan2(-z, -x) + 2 * Math.PI) % (2 * Math.PI), theta = Math.acos(y);
       const toMoon = Math.max(x * moon[0] + y * moon[1] + z * moon[2], 0);
-      const density = clouds(col / width, row / height * 2.8 / (0.5 + up), 9);
+      const density = clouds(phi / (2 * Math.PI), theta / Math.PI * 2.8 / (0.5 + up), 9);
       const cloud = smoothstep(density, 0.46, 0.68) * smoothstep(up, 0.03, 0.2);
       const rim = toMoon ** 90 * (0.2 + cloud * 0.9) + toMoon ** 10 * 0.025;
       const glow = Math.exp(-up * 9), shade = 0.5 + density;
       const sky = [0.018 + 0.34 * glow, 0.014 + 0.13 * glow, 0.075 + 0.26 * glow];
       const lit = [0.13 * shade, 0.08 * shade, 0.26 * shade];
       const warm = [1, 0.62, 0.3];
-      for (let c = 0; c < 3; c++) pixels[(row * width + col) * 3 + c] = srgb(sky[c] + (lit[c] - sky[c]) * cloud + warm[c] * rim);
+      const color = sky.map((c, i) => c + (lit[i] - c) * cloud + warm[i] * rim);
+      const exponent = Math.ceil(Math.log2(Math.max(...color, 1e-9)));
+      const scale = 256 / 2 ** exponent, offset = (row * width + col) * 4;
+      for (let c = 0; c < 3; c++) pixels[offset + c] = Math.min(255, color[c] * scale);
+      pixels[offset + 3] = exponent + 128;
     }
   }
-  return sharp(pixels, {raw: {width, height, channels: 3}}).jpeg({quality: 90, chromaSubsampling: '4:4:4'}).toBuffer();
-}
-
-/** Inward sky sphere with equirectangular UVs, cut at the scene's lowest point so grounding is unchanged. */
-function createDome(document, buffer, material, bottom) {
-  const around = 96, along = 48;
-  const positions = [], uvs = [], indices = [];
-  for (let j = 0; j <= along; j++) {
-    const theta = j / along * Math.PI;
-    for (let i = 0; i <= around; i++) {
-      const phi = i / around * 2 * Math.PI;
-      positions.push(-Math.sin(theta) * Math.cos(phi) * DOME_RADIUS, Math.max(Math.cos(theta) * DOME_RADIUS, bottom), -Math.sin(theta) * Math.sin(phi) * DOME_RADIUS);
-      uvs.push(i / around, j / along);
-    }
-  }
-  for (let j = 0; j < along; j++) for (let i = 0; i < around; i++) {
-    const a = j * (around + 1) + i, b = a + around + 1;
-    indices.push(a, a + 1, b, a + 1, b + 1, b);
-  }
-  const primitive = document.createPrimitive().setMaterial(material)
-    .setAttribute('POSITION', document.createAccessor().setType('VEC3').setArray(new Float32Array(positions)).setBuffer(buffer))
-    .setAttribute('TEXCOORD_0', document.createAccessor().setType('VEC2').setArray(new Float32Array(uvs)).setBuffer(buffer))
-    .setIndices(document.createAccessor().setType('SCALAR').setArray(new Uint16Array(indices)).setBuffer(buffer));
-  return document.createNode('sky').setMesh(document.createMesh('sky').addPrimitive(primitive));
+  return Buffer.concat([header, pixels]);
 }
 
 const transformPoint = (m, x, y, z) => [m[0] * x + m[4] * y + m[8] * z + m[12], m[1] * x + m[5] * y + m[9] * z + m[13], m[2] * x + m[6] * y + m[10] * z + m[14]];
@@ -150,36 +129,16 @@ const unlit = document.createExtension(KHRMaterialsUnlit).createUnlit();
 
 // glTF point intensity is candela and sphere intensity is radiance, so divide by the disk
 // area. A small radius keeps the projected pumpkin faces crisp.
-const lightsExtension = document.createExtension(KHRLightsPunctual);
-let moonDirection, moonDistance = 0;
-for (const node of document.getRoot().listNodes()) {
-  if (node.getName() === 'moon') moonDistance = Math.hypot(...node.getWorldTranslation());
-}
+const moonNode = document.getRoot().listNodes().find(node => node.getName() === 'moon');
+if (!moonNode) throw new Error('The source has no moon');
+const moonPosition = moonNode.getWorldTranslation();
+const moonDirection = moonPosition.map(c => c / Math.hypot(...moonPosition));
 for (const node of document.getRoot().listNodes()) {
   const light = node.getExtension('KHR_lights_punctual');
-  if (!light) continue;
-  if (light.getType() === 'point') {
-    light.setIntensity(light.getIntensity() / (Math.PI * FLAME_RADIUS ** 2));
-    node.setExtras({...node.getExtras(), mutracerRadius: FLAME_RADIUS});
-  } else if (light.getType() === 'directional') {
-    const m = node.getWorldMatrix();
-    const length = Math.hypot(m[8], m[9], m[10]);
-    const direction = [m[8] / length, m[9] / length, m[10] / length]; // Toward the light.
-    const isMoon = node.getName() === 'moonlight';
-    if (isMoon) moonDirection = direction;
-    // Just in front of the moon's disc, which would otherwise shadow its own light.
-    const distance = isMoon ? moonDistance * 0.9 : moonDistance;
-    const replacement = lightsExtension.createLight(light.getName()).setType('point').setColor(light.getColor())
-      .setIntensity(light.getIntensity() * distance ** 2 / (Math.PI * DISTANT_RADIUS ** 2));
-    const parent = node.getParentNode();
-    const distant = document.createNode(node.getName()).setTranslation(direction.map(c => c * distance))
-      .setExtension('KHR_lights_punctual', replacement).setExtras({mutracerRadius: DISTANT_RADIUS});
-    scene.addChild(distant);
-    if (parent) parent.removeChild(node);
-    node.dispose();
-  }
+  if (light?.getType() !== 'point') continue;
+  light.setIntensity(light.getIntensity() / (Math.PI * FLAME_RADIUS ** 2));
+  node.setExtras({...node.getExtras(), mutracerRadius: FLAME_RADIUS});
 }
-if (!moonDirection || !moonDistance) throw new Error('The source has no moon or moonlight');
 
 for (const material of document.getRoot().listMaterials()) {
   const name = material.getName();
@@ -205,10 +164,8 @@ for (const material of document.getRoot().listMaterials()) {
 
 mergeFoliage(document, scene, buffer);
 
-const skyTexture = document.createTexture('sky').setImage(await nightSky(moonDirection)).setMimeType('image/jpeg');
-const skyMaterial = document.createMaterial('sky').setBaseColorTexture(skyTexture).setDoubleSided(true)
-  .setExtension('KHR_materials_unlit', unlit);
-scene.addChild(createDome(document, buffer, skyMaterial, -19.4));
+// The viewer resolves this path against the GLB's ../source directory.
+document.getRoot().setExtras({pbrt: {light_sources: [{gltf: 'metadata_only', pbrt: 'infinite', source: '../halloween/sky.hdr'}]}});
 
 await document.transform(prune({keepExtras: true, keepAttributes: true}));
 
@@ -221,6 +178,7 @@ const credit = {
   description: 'Original autumn Halloween night by Yi Shen, modeled with a Blender script.'
 };
 await mkdir(directory, {recursive: true});
+await writeFile(path.join(directory, 'sky.hdr'), nightSky(moonDirection));
 const bytes = await io.writeBinary(document);
 await writeFile(path.join(directory, 'download.glb'), bytes);
 await writeFile(path.join(directory, 'model.glb'), bytes);

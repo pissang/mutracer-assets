@@ -435,8 +435,8 @@
     "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
     "credit": "Yi Shen",
     "cameraReason": "Eye-level view through the pumpkins to the moon, matching the example.",
-    "materialNotes": "Carved pumpkins, puddles, crystal, polished granite and a sky dome in the model.",
-    "changes": "Sky, unlit moon and mist, OpenPBR metadata and light radii baked into the GLB; foliage merged per material.",
+    "materialNotes": "Carved pumpkins, puddles, crystal and polished granite under a procedural night sky.",
+    "changes": "Unlit moon and mist, OpenPBR metadata and light radii baked into the GLB; foliage merged per material; night sky stored as sky.hdr.",
     "renderSettings": {
       "groundShadow": false,
       "bounces": 14,
@@ -449,17 +449,18 @@
     "background": "environment",
     "camera": {
       "position": [
-        0.3,
+        -11.7745,
         21.3,
-        11.6
+        55.7167
       ],
       "target": [
-        0.2,
+        -11.8745,
         21.75,
-        0
+        44.1167
       ],
       "fov": 46,
       "space": "grounded"
-    }
+    },
+    "environment": "sky.hdr"
   }
 ]

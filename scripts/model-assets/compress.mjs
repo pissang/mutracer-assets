@@ -31,6 +31,7 @@ export async function compressGLB(bytes,directory,root,{instance=false}={}) {
   const parsed=decodeGLB(await readFile(output));
   // Asset-level extras are not represented by glTF Transform's document model.
   parsed.json.asset.extras=source.json.asset.extras;
+  if(source.json.extras) parsed.json.extras=source.json.extras;
   const originalCamera=source.json.scenes?.[source.json.scene||0]?.extras?.mutracerCamera;
   const compressedCamera=parsed.json.scenes?.[parsed.json.scene||0]?.extras?.mutracerCamera;
   if(JSON.stringify(originalCamera)!==JSON.stringify(compressedCamera)) throw new Error('Compression changed the default camera');

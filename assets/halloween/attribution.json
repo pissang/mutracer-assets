@@ -5,5 +5,5 @@
   "license": "CC0",
   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
   "description": "Original autumn Halloween night by Yi Shen, modeled with a Blender script.",
-  "changes": "Repacked as a single GLB; textures limited to 1024px; geometry compressed/quantized with gltf-transform Meshopt without simplification; PNG textures compressed with lossless WebP; default camera embedded; preview rendered with MuTracer and denoised with OIDN standard. Sky, unlit moon and mist, OpenPBR metadata and light radii baked into the GLB; foliage merged per material."
+  "changes": "Repacked as a single GLB; textures limited to 1024px; geometry compressed/quantized with gltf-transform Meshopt without simplification; PNG textures compressed with lossless WebP; default camera embedded; preview rendered with MuTracer and denoised with OIDN standard. Unlit moon and mist, OpenPBR metadata and light radii baked into the GLB; foliage merged per material; night sky stored as sky.hdr."
 }

@@ -35,6 +35,9 @@ export async function createAssetRenderer(options) {
           if (req.url?.split('?')[0] === '/__asset-model.glb' && modelFile) {
             res.setHeader('Content-Type', 'model/gltf-binary');
             createReadStream(modelFile).on('error', () => { res.statusCode = 500; res.end(); }).pipe(res);
+          } else if (modelFile && req.url?.split('?')[0].endsWith('.hdr')) {
+            // A model's metadata environment sits beside its GLB.
+            createReadStream(path.join(path.dirname(modelFile), path.basename(req.url.split('?')[0]))).on('error', () => { res.statusCode = 404; res.end(); }).pipe(res);
           } else if (req.url?.split('?')[0] === '/__asset-render') {
             res.setHeader('Content-Type', 'text/html');
             res.end('<!doctype html><style>body{margin:0}canvas{width:100vw;height:100vh;display:block}</style><canvas></canvas>');

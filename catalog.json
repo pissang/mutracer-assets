@@ -2052,16 +2052,16 @@
     "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
     "credit": "Yi Shen",
     "sourceUrl": "https://github.com/pissang/mutracer-assets",
-    "sizeMB": 9.46,
-    "bytes": 9460924,
+    "sizeMB": 9.38,
+    "bytes": 9382156,
     "delivery": "github",
-    "sha256": "49a2120812f545a94ce38da0915cc36e4bba06557045837809b33b6b0a2c23d3",
+    "sha256": "e36ef2659e39e46e2cc69d4fa48101863a41b22148ff75aa05b776ad2b0572aa",
     "textureSize": 1024,
     "compression": {
       "tool": "gltf-transform",
       "version": "4.5.1",
-      "inputBytes": 41137784,
-      "outputBytes": 9460924,
+      "inputBytes": 40944380,
+      "outputBytes": 9382156,
       "compressed": true,
       "geometry": "Meshopt (16-bit positions, 12-bit normals, 14-bit UVs)",
       "textures": "lossless WebP for PNG; JPEG unchanged",
@@ -2085,25 +2085,20 @@
           "width": 512,
           "height": 512,
           "mimeType": "image/webp"
-        },
-        {
-          "width": 1024,
-          "height": 512,
-          "mimeType": "image/jpeg"
         }
       ]
     },
-    "materialNotes": "Carved pumpkins, puddles, crystal, polished granite and a sky dome in the model.",
+    "materialNotes": "Carved pumpkins, puddles, crystal and polished granite under a procedural night sky.",
     "camera": {
       "position": [
-        0.3,
+        -11.7745,
         21.3,
-        11.6
+        55.7167
       ],
       "target": [
-        0.2,
+        -11.8745,
         21.75,
-        0
+        44.1167
       ],
       "fov": 46,
       "space": "grounded"
