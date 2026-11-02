@@ -49,8 +49,8 @@ camera. Their Collection presets enable light tracing and photon mapping with
 12 bounces. Restoring a saved user view
 keeps its render settings; Reset all returns to the example defaults.
 
-Halloween Night is an original CC0 scene by Yi Shen, modeled by MuTracer's
-`scripts/create-halloween-scene.py`. Run `node scripts/prepare-halloween.mjs`
+Halloween Night is an original CC0 scene by Yi Shen, modeled by
+`scripts/create-halloween-scene.py` into `sources/halloween.glb`. Run `node scripts/prepare-halloween.mjs`
 before importing it: the viewer reads only the GLB, so this bakes the example's
 unlit materials, OpenPBR metadata and light radii into the file, merges the
 foliage per material and writes the night sky to a `sky.hdr` beside it. Its

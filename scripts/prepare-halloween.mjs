@@ -1,4 +1,4 @@
-// Bakes MuTracer's examples/assets/halloween.glb into a self-contained Collection source.
+// Bakes sources/halloween.glb into a self-contained Collection source.
 // The example configures its sky, materials and lights in code. The viewer only reads the
 // GLB, so this writes them into the file: unlit moon, stars and mist, OpenPBR metadata and
 // merged foliage, plus a sibling sky.hdr that the GLB names as its environment.
@@ -13,7 +13,7 @@ import {KHRONOS_EXTENSIONS, KHRMaterialsUnlit} from '@gltf-transform/extensions'
 import {prune} from '@gltf-transform/functions';
 import {root} from './check-assets.mjs';
 
-const source = process.argv[2] ?? path.join(root, '../mutracer/examples/assets/halloween.glb');
+const source = process.argv[2] ?? path.join(root, 'sources/halloween.glb');
 const directory = path.join(root, 'work/import/halloween');
 const FLAME_RADIUS = 0.02;
 // No crystal dispersion here: the viewer traces three wavelengths per path, about ten times slower.
