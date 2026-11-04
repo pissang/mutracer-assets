@@ -42,7 +42,10 @@ export async function compressGLB(bytes,directory,root,{instance=false}={}) {
   for(const image of parsed.json.images||[]) {
     const view=parsed.json.bufferViews[image.bufferView];
     const metadata=await sharp(parsed.bin.subarray(view.byteOffset||0,(view.byteOffset||0)+view.byteLength)).metadata();
-    if(metadata.width>1024||metadata.height>1024) throw new Error('Compressed texture exceeds 1K');
+    const original=source.json.images[images.length];
+    const originalView=source.json.bufferViews[original.bufferView];
+    const originalMetadata=await sharp(source.bin.subarray(originalView.byteOffset||0,(originalView.byteOffset||0)+originalView.byteLength)).metadata();
+    if(metadata.width!==originalMetadata.width||metadata.height!==originalMetadata.height) throw new Error('Compression changed texture dimensions');
     images.push({width:metadata.width,height:metadata.height,mimeType:image.mimeType});
   }
   let glb=encodeGLB(parsed.json,parsed.bin);

@@ -61,7 +61,8 @@ Completed models are checkpointed; re-running reuses cached GLBs and matching
 previews. `--refresh` downloads and renders again. Defaults are 720 × 405 with WebP quality 80%,
 256 offline samples, procedural studio lights and OIDN standard denoising on
 WebGPU. Preview generation fails if WebGPU or OIDN is unavailable. Downloads prefer Sketchfab's optimized GLB; all textures are
-checked and capped at 1024 pixels on their longest edge without upscaling.
+checked and capped at 1024 pixels on their longest edge without upscaling by default.
+A selection entry can set `textureSize` (up to 8192) to retain higher-resolution textures.
 Original downloads remain in ignored `work/import/<id>/download.glb`.
 
 Before rendering or publication, gltf-transform converts PNG textures to

@@ -1679,16 +1679,16 @@
     "licenseUrl": "http://creativecommons.org/licenses/by/4.0/",
     "credit": "Dave",
     "sourceUrl": "https://sketchfab.com/3d-models/2024-porsche-992-gt3-r-b76c9b2ae2d548c3869426eac4ab8a19",
-    "sizeMB": 10.35,
-    "bytes": 10348276,
+    "sizeMB": 12,
+    "bytes": 12003568,
     "delivery": "github",
-    "sha256": "b29c14e27ee6be710e241425e9b5acab9e2ca87e244d20c9db80f6168b8e7498",
-    "textureSize": 1024,
+    "sha256": "7e9e39dd58d81164601754fcf94e637860f1945e0fd732f364f3521c709ee59f",
+    "textureSize": 4096,
     "compression": {
       "tool": "gltf-transform",
       "version": "4.5.1",
-      "inputBytes": 37173676,
-      "outputBytes": 10348276,
+      "inputBytes": 39964176,
+      "outputBytes": 12003568,
       "compressed": true,
       "geometry": "Meshopt (16-bit positions, 12-bit normals, 14-bit UVs)",
       "textures": "lossless WebP for PNG; JPEG unchanged",
@@ -1754,8 +1754,8 @@
           "mimeType": "image/webp"
         },
         {
-          "width": 1024,
-          "height": 1024,
+          "width": 4096,
+          "height": 4096,
           "mimeType": "image/webp"
         },
         {

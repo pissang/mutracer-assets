@@ -73,6 +73,7 @@ GLBs larger than 100 MiB are staged in ignored work/r2; previews always go to as
           await prepareViewerModel(root, entry, options, renderer);
           continue;
         }
+        const textureSize = entry.textureSize ?? options.textureSize;
         const dir = path.join(root, 'work/import', entry.id);
         await mkdir(dir, { recursive: true });
         const glbFile = path.join(dir, 'model.glb');
@@ -95,8 +96,8 @@ GLBs larger than 100 MiB are staged in ignored work/r2; previews always go to as
         const original=path.join(dir,'download.glb');
         if (!(await stat(original).then(()=>true,()=>false))) await cp(glbFile,original);
         if (entry.additionalCredits) credit.additionalCredits = entry.additionalCredits;
-        credit.changes = `Repacked as a single GLB; textures limited to ${options.textureSize}px; geometry compressed/quantized with gltf-transform Meshopt without simplification; PNG textures compressed with lossless WebP; default camera embedded; preview rendered with MuTracer and denoised with OIDN standard.${entry.scale !== undefined && entry.scale !== 1 ? ` Scene scaled uniformly by ${entry.scale}×.` : ''}${entry.changes ? ` ${entry.changes}` : ''}`;
-        const processed = await limitTextures(await readFile(original),options.textureSize,credit,entry.camera);
+        credit.changes = `Repacked as a single GLB; textures limited to ${textureSize}px; geometry compressed/quantized with gltf-transform Meshopt without simplification; PNG textures compressed with lossless WebP; default camera embedded; preview rendered with MuTracer and denoised with OIDN standard.${entry.scale !== undefined && entry.scale !== 1 ? ` Scene scaled uniformly by ${entry.scale}×.` : ''}${entry.changes ? ` ${entry.changes}` : ''}`;
+        const processed = await limitTextures(await readFile(original),textureSize,credit,entry.camera);
         const scaled=entry.scale !== undefined ? scaleSceneRoots(processed.glb,entry.scale) : processed.glb;
         const compressed=await compressGLB(scaled,path.join(dir,'compression'),root,{instance:entry.instance===true});
         await writeFile(glbFile,compressed.glb);
@@ -133,17 +134,17 @@ GLBs larger than 100 MiB are staged in ignored work/r2; previews always go to as
         await cp(image, path.join(assetDir, 'thumbnail.webp'));
         await cp(path.join(dir, 'attribution.json'), path.join(assetDir, 'attribution.json'));
         if (delivery === 'github' || delivery === 'local') await cp(glbFile, path.join(assetDir, 'model.glb'));
-        if (entry.environment) await cp(path.join(dir, entry.environment), path.join(assetDir, entry.environment));
         else {
           const target = path.join(root, 'work/r2', entry.id);
           await mkdir(target, { recursive: true });
           await cp(glbFile, path.join(target, 'model.glb'));
           await rm(path.join(assetDir, 'model.glb'), { force: true });
         }
+        if (entry.environment) await cp(path.join(dir, entry.environment), path.join(assetDir, entry.environment));
         const item = { id: entry.id, uid: entry.uid, name: entry.name || credit.title, tag: entry.tag || 'Sketchfab',
           license: credit.license, licenseUrl: credit.licenseUrl, credit: credit.author, sourceUrl: credit.sourceUrl,
           sizeMB: Number((size / 1e6).toFixed(2)), bytes: size, delivery,
-          sha256: hash, textureSize:options.textureSize, compression:compressed.stats, ...(entry.materialNotes ? {materialNotes:entry.materialNotes} : {}), ...(entry.reviewOnly ? {reviewOnly:true} : {}), ...(entry.nonCommercial===true ? {nonCommercial:true} : {}), ...(entry.camera ? {camera:entry.camera} : {}), ...(entry.renderSettings ? {renderSettings:entry.renderSettings} : {}) };
+          sha256: hash, textureSize, compression:compressed.stats, ...(entry.materialNotes ? {materialNotes:entry.materialNotes} : {}), ...(entry.reviewOnly ? {reviewOnly:true} : {}), ...(entry.nonCommercial===true ? {nonCommercial:true} : {}), ...(entry.camera ? {camera:entry.camera} : {}), ...(entry.renderSettings ? {renderSettings:entry.renderSettings} : {}) };
         const index = catalog.findIndex((old) => old.id === item.id);
         if (index >= 0 && catalog[index].sha256 === item.sha256 && delivery === 'r2') {
           for (const field of ['r2Url', 'r2Bucket', 'r2Key']) if (catalog[index][field]) item[field] = catalog[index][field];
